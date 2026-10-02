@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <desc>PROVISIONAL_SITE_MARK — compact lane monogram.</desc>
+  <rect width="64" height="64" rx="14" fill="#03131f"/>
+  <defs>
+    <linearGradient id="sfa-mark-gradient" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#78dcef"/>
+      <stop offset="100%" stop-color="#15b8d6"/>
+    </linearGradient>
+  </defs>
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M11 25.5 C17 19.5 23 19.5 29 25.5 C35 31.5 41 31.5 47 25.5" stroke="url(#sfa-mark-gradient)" stroke-width="6.5"/>
+    <path d="M11 41.5 C17 35.5 23 35.5 29 41.5 C35 47.5 41 47.5 47 41.5" stroke="#35c8e4" stroke-width="5.5"/>
+    <path d="M49.5 13 V51" stroke="#78dcef" stroke-width="5.5"/>
+    <path d="M49.5 25.5 H45" stroke="#78dcef" stroke-width="4"/>
+  </g>
+  <circle cx="49.5" cy="13" r="4" fill="#35c8e4"/>
+</svg>
