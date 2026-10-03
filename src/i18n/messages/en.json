@@ -92,7 +92,10 @@
     "kicker": "The idea",
     "headline": "Water is the clearest place to learn: the body understands before the mind does.",
     "body": "At Swim Fit Academy the experience is built around felt progress: a cleaner position, a calmer breath, and confidence that compounds every session. The outcome is the goal, and the method is a staged progression — from comfort in the water to coordinated performance.",
-    "note": "We do not publish numbers, awards, or reviews that are not verified. Anything not confirmed by management stays a direct question on WhatsApp."
+    "note": "We do not publish numbers, awards, or reviews that are not verified. Anything not confirmed by management stays a direct question on WhatsApp.",
+    "logoAltDay": "Swim Fit Academy logo on a light background",
+    "logoAltNight": "Swim Fit Academy logo on a dark background",
+    "provisionalNote": "The identity shown is the official supplied logo from the reference pack, verified by visual inspection."
   },
   "poster": {
     "brand": {
@@ -557,5 +560,10 @@
     "body": "Try refreshing the page. If the problem continues, reach us directly.",
     "retry": "Try again",
     "whatsapp": "Message on WhatsApp"
+  },
+  "theme": {
+    "label": "Appearance",
+    "toDay": "Switch to light mode",
+    "toNight": "Switch to dark mode"
   }
 }

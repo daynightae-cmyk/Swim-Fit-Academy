@@ -46,7 +46,7 @@ export function SectionHeading({
               aria-hidden="true"
               className={[
                 'font-latin text-[0.72rem] font-semibold tracking-[0.24em]',
-                light ? 'text-ocean-600' : 'text-pool-400',
+                light ? 'text-ocean-600' : 'text-accent',
               ].join(' ')}
             >
               {marker}
@@ -59,7 +59,7 @@ export function SectionHeading({
             <p
               className={[
                 'text-[0.72rem] font-semibold uppercase tracking-[0.22em]',
-                light ? 'text-slate-600' : 'text-pool-300',
+                light ? 'text-alt-ink-2' : 'text-accent',
               ].join(' ')}
             >
               {kicker}
@@ -73,7 +73,7 @@ export function SectionHeading({
         className={[
           'text-balance max-w-[22ch] text-3xl leading-[1.15] sm:text-4xl lg:text-[2.85rem]',
           align === 'center' ? 'mx-auto' : '',
-          light ? 'text-ocean-950' : 'text-ice-50',
+          light ? 'text-alt-ink' : 'text-ink',
         ].join(' ')}
       >
         {title}
@@ -83,7 +83,7 @@ export function SectionHeading({
         <p
           className={[
             'max-w-[62ch] text-[1.0rem] leading-relaxed sm:text-[1.05rem]',
-            light ? 'text-slate-700' : 'text-slate-400',
+            light ? 'text-alt-ink-2' : 'text-ink-2',
           ].join(' ')}
         >
           {body}
@@ -127,7 +127,7 @@ export function OwnerRequiredNote({ children, tone = 'deep' }: OwnerRequiredNote
     <p
       className={[
         'text-[0.83rem] leading-relaxed',
-        tone === 'light' ? 'text-slate-600' : 'text-slate-500',
+        tone === 'light' ? 'text-alt-ink-2' : 'text-ink-3',
       ].join(' ')}
     >
       {children}

@@ -11,6 +11,9 @@ import { SiteHeader } from '@/components/layout/SiteHeader';
 import { StickyMobileActions } from '@/components/layout/StickyMobileActions';
 import { AnalyticsProvider } from '@/lib/AnalyticsProvider';
 import { buildRouteMetadata } from '@/lib/seo/metadata';
+import { DEFAULT_THEME, THEME_BOOTSTRAP_SCRIPT } from '@/lib/theme';
+import { Analytics } from '@vercel/analytics/next';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import { isLocale, localeHtmlLang, routing, type Locale } from '@/i18n/routing';
 
 /**
@@ -33,6 +36,12 @@ const manrope = Manrope({
   variable: '--font-manrope',
   preload: true,
 });
+
+/**
+ * Vercel injects `NEXT_PUBLIC_VERCEL_ENV` at build time. Anywhere else the
+ * analytics beacons would request a script the host does not serve.
+ */
+const isVercelDeployment = Boolean(process.env.NEXT_PUBLIC_VERCEL_ENV);
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -75,10 +84,15 @@ export default async function LocaleLayout({
     <html
       lang={localeHtmlLang[locale]}
       dir={locale === 'ar' ? 'rtl' : 'ltr'}
+      data-theme={DEFAULT_THEME}
       className={`${plexArabic.variable} ${manrope.variable}`}
       suppressHydrationWarning
     >
-      <body className="min-h-svh bg-ocean-950 antialiased">
+      <head>
+        {/* Applies the stored theme before first paint: no flash, no shift. */}
+        <script dangerouslySetInnerHTML={{ __html: THEME_BOOTSTRAP_SCRIPT }} />
+      </head>
+      <body className="min-h-svh antialiased">
         <NextIntlClientProvider locale={locale} messages={messages} timeZone="Asia/Dubai">
           <a
             href="#main"
@@ -97,6 +111,9 @@ export default async function LocaleLayout({
           <StickyMobileActions />
           <AIConciergeLauncher />
           <AnalyticsProvider />
+          {/* Mounted only on Vercel: the beacon scripts 404 on any other host. */}
+          {isVercelDeployment ? <Analytics /> : null}
+          {isVercelDeployment ? <SpeedInsights /> : null}
         </NextIntlClientProvider>
       </body>
     </html>

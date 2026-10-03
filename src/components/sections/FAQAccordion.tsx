@@ -42,13 +42,13 @@ export function FAQAccordion({ entries, category }: FAQAccordionProps) {
               id={`${baseId}-${group}`}
               className={[
                 'flex items-center gap-3 text-[0.72rem] font-semibold uppercase tracking-[0.24em]',
-                group === 'answered' ? 'text-pool-300' : 'text-slate-500',
+                group === 'answered' ? 'text-accent' : 'text-ink-4',
               ].join(' ')}
             >
-              <span aria-hidden="true" className={group === 'answered' ? 'h-px w-8 bg-pool-400/45' : 'h-px w-8 bg-slate-500/40'} />
+              <span aria-hidden="true" className={group === 'answered' ? 'h-px w-8 bg-accent/45' : 'h-px w-8 bg-ink-4/40'} />
               {t(CATEGORY_LABEL[group])}
             </h3>
-            <ul className="mt-5 flex flex-col divide-y divide-pool-300/10 border-y border-pool-300/10">
+            <ul className="mt-5 flex flex-col divide-y divide-line border-y border-line">
               {groupEntries.map((entry) => (
                 <li key={entry.id}>
                   <FaqItem id={entry.id} category={group} baseId={baseId} />
@@ -84,19 +84,19 @@ function FaqItem({ id, category, baseId }: { readonly id: string; readonly categ
           aria-expanded={open}
           aria-controls={panelId}
           data-testid="faq-question"
-          className="flex w-full items-center justify-between gap-5 py-5 text-start text-[1rem] font-medium text-ice-50 transition-colors hover:text-pool-200"
+          className="flex w-full items-center justify-between gap-5 py-5 text-start text-[1rem] font-medium text-ink transition-colors hover:text-accent-strong"
         >
           <span className="text-balance">{t(`faq.questions.${id}`)}</span>
-          <ChevronIcon direction={open ? 'up' : 'down'} size={19} className="shrink-0 text-pool-400" />
+          <ChevronIcon direction={open ? 'up' : 'down'} size={19} className="shrink-0 text-accent" />
         </button>
       </h4>
       <div id={panelId} role="region" aria-labelledby={buttonId} hidden={!open} className="pb-6">
         {needsConfirmation ? (
           <div className="flex flex-col gap-3">
-            <p className="max-w-[62ch] text-[0.93rem] leading-[1.75] text-slate-300">
+            <p className="max-w-[62ch] text-[0.93rem] leading-[1.75] text-ink-2">
               {t('faq.confirmPrefix')}
             </p>
-            <p className="max-w-[62ch] text-[0.88rem] leading-relaxed text-slate-500">{t('faq.confirmBody')}</p>
+            <p className="max-w-[62ch] text-[0.88rem] leading-relaxed text-ink-4">{t('faq.confirmBody')}</p>
             <a
               href={whatsappHref}
               target="_blank"
@@ -109,7 +109,7 @@ function FaqItem({ id, category, baseId }: { readonly id: string; readonly categ
             </a>
           </div>
         ) : (
-          <p className="max-w-[62ch] text-[0.93rem] leading-[1.75] text-slate-300">{t(`faq.answers.${id}`)}</p>
+          <p className="max-w-[62ch] text-[0.93rem] leading-[1.75] text-ink-2">{t(`faq.answers.${id}`)}</p>
         )}
       </div>
     </div>
@@ -124,15 +124,15 @@ export function FAQTeaser() {
   const confirmed = faqsByCategory('answered');
   return (
     <div className="flex flex-col gap-6">
-      <ul className="flex flex-col divide-y divide-pool-300/10 border-y border-pool-300/10">
+      <ul className="flex flex-col divide-y divide-line border-y border-line">
         {confirmed.map((entry) => (
           <li key={entry.id} className="flex items-start gap-3 py-4">
-            <span aria-hidden="true" className="mt-2.5 h-1 w-1 shrink-0 rounded-full bg-pool-400" />
-            <p className="text-[0.98rem] text-ice-100">{t(`faq.questions.${entry.id}`)}</p>
+            <span aria-hidden="true" className="mt-2.5 h-1 w-1 shrink-0 rounded-full bg-accent" />
+            <p className="text-[0.98rem] text-ink-2">{t(`faq.questions.${entry.id}`)}</p>
           </li>
         ))}
       </ul>
-      <p className="text-[0.86rem] leading-relaxed text-slate-500">{t('faq.schemaNote')}</p>
+      <p className="text-[0.86rem] leading-relaxed text-ink-4">{t('faq.schemaNote')}</p>
     </div>
   );
 }

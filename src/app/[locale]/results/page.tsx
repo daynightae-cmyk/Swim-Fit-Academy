@@ -10,13 +10,12 @@ import {
   SkillTimeline,
   VerifiedReviewSlot,
 } from '@/components/sections/ProgressStory';
-import { WidePoster } from '@/components/posters/WidePoster';
+import { PosterBlock } from '@/components/sections/PosterBlock';
 import { StructuredData } from '@/components/seo/StructuredData';
 import { Section } from '@/components/ui/Section';
 import { SectionHeading } from '@/components/ui/SectionHeading';
 import { WhatsAppButton } from '@/components/ui/ContactActions';
 import { MotionReveal } from '@/components/motion/MotionReveal';
-import { posterById } from '@/content/posters';
 import { progressStory, verifiedCompetitionResults } from '@/content/faq';
 import { isLocale, routing, type Locale } from '@/i18n/routing';
 
@@ -123,7 +122,7 @@ export default async function ResultsPage({ params }: { readonly params: Promise
       </Section>
 
       <div className="mx-auto w-full max-w-[86rem] px-5 py-10 sm:px-8 lg:px-12 lg:py-14">
-        <WidePoster poster={posterById('progress')} />
+        <PosterBlock id="progress" tone="tight" />
       </div>
     </>
   );

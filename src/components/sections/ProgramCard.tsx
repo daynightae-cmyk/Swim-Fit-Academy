@@ -66,8 +66,8 @@ export function ProgramCard({ program, tone = 'deep', onOpenAssistant }: Program
       className={[
         'refract group relative flex h-full flex-col rounded-[1.375rem] border p-6 sm:rounded-[1.5rem] sm:p-7',
         light
-          ? 'border-ocean-500/10 bg-white/70 text-ocean-950 backdrop-blur-sm'
-          : 'border-pool-300/12 bg-ocean-900/45 text-ice-50',
+          ? 'border-line bg-raised text-alt-ink'
+          : 'border-line bg-inset text-ink',
       ].join(' ')}
       style={{ ['--card-depth' as string]: `${program.depthPercent}%` }}
     >
@@ -85,7 +85,7 @@ export function ProgramCard({ program, tone = 'deep', onOpenAssistant }: Program
           <span
             className={[
               'inline-flex h-11 w-11 items-center justify-center rounded-xl border',
-              light ? 'border-ocean-500/15 bg-ice-50 text-ocean-700' : 'border-pool-300/18 bg-ocean-950/50 text-pool-300',
+              light ? 'border-line bg-sunken text-ocean-700' : 'border-line bg-sunken text-accent',
             ].join(' ')}
           >
             <SkillIcon name={program.icon} size={21} />
@@ -94,7 +94,7 @@ export function ProgramCard({ program, tone = 'deep', onOpenAssistant }: Program
             aria-hidden="true"
             className={[
               'font-latin text-[0.72rem] font-semibold tracking-[0.24em]',
-              light ? 'text-ocean-500/60' : 'text-pool-400/70',
+              light ? 'text-ocean-500/60' : 'text-accent',
             ].join(' ')}
           >
             {program.marker}
@@ -113,7 +113,7 @@ export function ProgramCard({ program, tone = 'deep', onOpenAssistant }: Program
       <h3
         className={[
           'mt-6 text-balance text-[1.42rem] font-semibold leading-[1.2]',
-          light ? 'text-ocean-950' : 'text-ice-50',
+          light ? 'text-alt-ink' : 'text-ink',
         ].join(' ')}
       >
         {t(`program.${program.id}.title`)}
@@ -122,7 +122,7 @@ export function ProgramCard({ program, tone = 'deep', onOpenAssistant }: Program
       <p
         className={[
           'mt-3 text-[0.95rem] leading-[1.75]',
-          light ? 'text-slate-700' : 'text-slate-300',
+          light ? 'text-alt-ink-2' : 'text-ink-2',
         ].join(' ')}
       >
         {t(`program.${program.id}.goal`)}
@@ -131,7 +131,7 @@ export function ProgramCard({ program, tone = 'deep', onOpenAssistant }: Program
       <p
         className={[
           'mt-3 text-[0.86rem] leading-relaxed',
-          light ? 'text-slate-600' : 'text-slate-500',
+          light ? 'text-alt-ink-2' : 'text-ink-3',
         ].join(' ')}
       >
         {t(`program.${program.id}.suitability`)}
@@ -145,8 +145,8 @@ export function ProgramCard({ program, tone = 'deep', onOpenAssistant }: Program
             className={[
               'inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1.5 text-[0.74rem] font-medium',
               light
-                ? 'border-ocean-500/12 bg-ice-50/80 text-slate-700'
-                : 'border-pool-300/14 bg-ocean-950/40 text-ice-100',
+                ? 'border-line bg-sunken text-alt-ink-2'
+                : 'border-line bg-sunken text-ink',
             ].join(' ')}
           >
             <SkillIcon name={CUE_ICON[cue]} size={13} />

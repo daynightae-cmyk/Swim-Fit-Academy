@@ -306,24 +306,24 @@ function ChatPanelCore({ onClose }: { readonly onClose: () => void }) {
       style={{ boxShadow: '0 40px 90px -40px rgba(0,0,0,0.95)' }}
     >
       {/* Header */}
-      <div className="flex items-center gap-3 border-b border-pool-300/14 bg-gradient-to-b from-ocean-800/90 to-ocean-900/90 px-4 py-3.5 backdrop-blur-xl">
+      <div className="flex items-center gap-3 border-b border-line bg-glass px-4 py-3.5 backdrop-blur-xl">
         <span className="relative flex h-10 w-10 shrink-0 items-center justify-center">
-          <span className="orb-pulse absolute inset-0 rounded-full bg-pool-400/25 blur-md" />
-          <span className="relative flex h-10 w-10 items-center justify-center rounded-full border border-pool-300/25 bg-ocean-950/70">
+          <span className="orb-pulse absolute inset-0 rounded-full bg-accent/25 blur-md" />
+          <span className="relative flex h-10 w-10 items-center justify-center rounded-full border border-line bg-glass">
             <ConciergeOrb className="h-6 w-6" />
           </span>
         </span>
         <div className="min-w-0 flex-1">
-          <p id={titleId} className="truncate text-[0.95rem] font-semibold text-ice-50">
+          <p id={titleId} className="truncate text-[0.95rem] font-semibold text-ink">
             {t('title')}
           </p>
-          <p className="truncate text-[0.76rem] text-slate-400">{t('subtitle')}</p>
+          <p className="truncate text-[0.76rem] text-ink-3">{t('subtitle')}</p>
         </div>
         <div className="flex items-center gap-1.5">
           {process.env.NODE_ENV === 'development' ? (
             <span
               data-testid="ai-mode-indicator"
-              className="rounded-full border border-pool-300/20 px-2 py-0.5 font-latin text-[0.6rem] font-semibold uppercase tracking-wider text-pool-300"
+              className="rounded-full border border-line px-2 py-0.5 font-latin text-[0.6rem] font-semibold uppercase tracking-wider text-accent"
             >
               {mode === 'gemini' ? `AI MODE: GEMINI` : `AI MODE: LOCAL FALLBACK`}
             </span>
@@ -333,7 +333,7 @@ function ChatPanelCore({ onClose }: { readonly onClose: () => void }) {
             onClick={onClose}
             aria-label={t('close')}
             data-testid="ai-chat-close"
-            className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-pool-300/20 text-ice-100 transition-colors hover:bg-pool-400/12"
+            className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-line text-ink-2 transition-colors hover:bg-accent/12"
           >
             <CloseIcon size={17} />
           </button>
@@ -341,7 +341,7 @@ function ChatPanelCore({ onClose }: { readonly onClose: () => void }) {
       </div>
 
       {/* Lane divider */}
-      <div aria-hidden="true" className="h-px w-full bg-gradient-to-r from-transparent via-pool-300/35 to-transparent" />
+      <div aria-hidden="true" className="h-px w-full bg-gradient-to-r from-transparent via-line-strong to-transparent" />
 
       {/* Messages */}
       <div
@@ -353,7 +353,7 @@ function ChatPanelCore({ onClose }: { readonly onClose: () => void }) {
       >
         {messages.length === 0 ? (
           <div className="flex h-full flex-col justify-center gap-4">
-            <p className="text-balance text-[1rem] leading-relaxed text-ice-100">{t('answers.greeting')}</p>
+            <p className="text-balance text-[1rem] leading-relaxed text-ink-2">{t('answers.greeting')}</p>
             <AIQuickActions chips={chips.length > 0 ? chips : (t.raw('chips') as unknown as readonly string[])} onSelect={onChip} disabled={busy} />
           </div>
         ) : (
@@ -370,9 +370,9 @@ function ChatPanelCore({ onClose }: { readonly onClose: () => void }) {
                   {message.text}
                   {message.role === 'assistant' && message.text.length === 0 && busy ? (
                     <span className="flex items-center gap-1.5 py-1" aria-label={t('thinking')}>
-                      <span className="ripple-dot h-1.5 w-1.5 rounded-full bg-pool-300" />
-                      <span className="ripple-dot h-1.5 w-1.5 rounded-full bg-pool-300" />
-                      <span className="ripple-dot h-1.5 w-1.5 rounded-full bg-pool-300" />
+                      <span className="ripple-dot h-1.5 w-1.5 rounded-full bg-accent" />
+                      <span className="ripple-dot h-1.5 w-1.5 rounded-full bg-accent" />
+                      <span className="ripple-dot h-1.5 w-1.5 rounded-full bg-accent" />
                     </span>
                   ) : null}
                 </div>
@@ -394,11 +394,11 @@ function ChatPanelCore({ onClose }: { readonly onClose: () => void }) {
       </div>
 
       {/* Disclaimer + composer */}
-      <div className="border-t border-pool-300/12 bg-ocean-950/70 px-4 pb-3 pt-2.5 backdrop-blur-xl">
-        <p className="mb-2 text-[0.68rem] leading-relaxed text-slate-600">{t('disclaimer')}</p>
+      <div className="border-t border-line bg-glass px-4 pb-3 pt-2.5 backdrop-blur-xl">
+        <p className="mb-2 text-[0.68rem] leading-relaxed text-ink-4">{t('disclaimer')}</p>
 
         <div className="mb-2 flex flex-wrap items-center gap-2">
-          <label className="inline-flex cursor-pointer items-center gap-1.5 text-[0.7rem] text-slate-400">
+          <label className="inline-flex cursor-pointer items-center gap-1.5 text-[0.7rem] text-ink-3">
             <input
               type="checkbox"
               checked={speakReplies}
@@ -415,19 +415,19 @@ function ChatPanelCore({ onClose }: { readonly onClose: () => void }) {
               type="button"
               onClick={stopSpeaking}
               aria-label={t('voiceStop')}
-              className="inline-flex h-6 w-6 items-center justify-center rounded-full border border-pool-300/20 text-pool-300"
+              className="inline-flex h-6 w-6 items-center justify-center rounded-full border border-line text-accent"
             >
               <StopIcon size={11} />
             </button>
           ) : (
-            <span aria-hidden="true" className="text-pool-400/70">
+            <span aria-hidden="true" className="text-accent/70">
               <SpeakerIcon size={13} />
             </span>
           )}
           {process.env.NODE_ENV === 'development' ? (
             <span
               data-testid="ai-mode-label"
-              className="ms-auto font-latin text-[0.6rem] uppercase tracking-wider text-slate-700"
+              className="ms-auto font-latin text-[0.6rem] uppercase tracking-wider text-ink-4 opacity-70"
             >
               {mode === 'gemini' ? 'AI MODE: GEMINI' : 'AI MODE: LOCAL FALLBACK'}
             </span>
@@ -448,7 +448,7 @@ function ChatPanelCore({ onClose }: { readonly onClose: () => void }) {
             placeholder={t('placeholder')}
             disabled={busy}
             data-testid="ai-composer"
-            className="max-h-28 min-h-[2.75rem] flex-1 resize-none rounded-2xl border border-pool-300/18 bg-ocean-900/80 px-3.5 py-2.5 text-[0.92rem] leading-relaxed text-ice-50 placeholder:text-slate-600 focus:border-pool-300/45 focus:outline-none disabled:opacity-60"
+            className="max-h-28 min-h-[2.75rem] flex-1 resize-none rounded-2xl border border-line bg-inset px-3.5 py-2.5 text-[0.92rem] leading-relaxed text-ink placeholder:text-ink-4 focus:border-line-strong focus:outline-none disabled:opacity-60"
           />
           <button
             type="submit"
@@ -470,7 +470,7 @@ function ChatPanelCore({ onClose }: { readonly onClose: () => void }) {
         onClick={() =>
           track('ai_handoff_whatsapp', attributionParams(locale, 'ai_panel', 'chat_footer', readUtmFromLocation()))
         }
-        className="flex items-center justify-center gap-2 border-t border-pool-300/10 bg-ocean-900/70 py-2.5 text-[0.78rem] font-medium text-pool-300 transition-colors hover:bg-pool-400/10"
+        className="flex items-center justify-center gap-2 border-t border-line bg-glass py-2.5 text-[0.78rem] font-medium text-accent transition-colors hover:bg-accent/10"
       >
         <WhatsAppIcon size={15} />
         <span>{t('handoff.cta')}</span>

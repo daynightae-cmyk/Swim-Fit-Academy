@@ -73,7 +73,7 @@ export function MobileMenu({ locale }: { readonly locale: Locale }) {
         aria-controls="mobile-menu"
         aria-label={open ? t('closeMenu') : t('openMenu')}
         data-testid="mobile-menu-button"
-        className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-pool-300/22 text-ice-100 transition-colors hover:bg-pool-400/10 lg:hidden"
+        className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-line text-ink-2 transition-colors hover:bg-accent/10 lg:hidden"
       >
         {open ? (
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" aria-hidden="true">
@@ -96,7 +96,7 @@ export function MobileMenu({ locale }: { readonly locale: Locale }) {
           data-testid="mobile-menu"
           className="animate-menu-curtain fixed inset-x-0 top-[4.25rem] bottom-0 z-40 lg:hidden"
         >
-          <div className="absolute inset-0 -z-10 bg-ocean-950/97 backdrop-blur-2xl" />
+          <div className="absolute inset-0 -z-10 bg-page/97 backdrop-blur-2xl" />
           <div
             aria-hidden="true"
             className="absolute inset-x-0 top-0 -z-10 h-40"
@@ -112,12 +112,12 @@ export function MobileMenu({ locale }: { readonly locale: Locale }) {
                     <Link
                       href={target}
                       onClick={() => setOpen(false)}
-                      className="flex items-center justify-between gap-4 py-4 text-[1.12rem] font-medium text-ice-50"
+                      className="flex items-center justify-between gap-4 py-4 text-[1.12rem] font-medium text-ink"
                     >
                       <span>{nav(route.key)}</span>
                       <span
                         aria-hidden="true"
-                        className="h-1 w-4 rounded-full bg-pool-400/30 transition-all duration-400"
+                        className="h-1 w-4 rounded-full bg-accent/30 transition-all duration-400"
                       />
                     </Link>
                   </li>

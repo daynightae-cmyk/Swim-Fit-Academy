@@ -40,7 +40,7 @@ export function Section({
       className={[
         'relative',
         padding,
-        light ? 'bg-ice-50 text-ocean-950' : 'bg-ocean-950 text-ice-50',
+        light ? 'bg-alt text-alt-ink' : 'bg-page text-ink',
         className ?? '',
       ].join(' ')}
     >

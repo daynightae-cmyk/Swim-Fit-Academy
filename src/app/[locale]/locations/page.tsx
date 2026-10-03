@@ -6,13 +6,12 @@ import Link from 'next/link';
 
 import { PageHero } from '@/components/sections/PageHero';
 import { AbuDhabiLocationPanel } from '@/components/sections/AbuDhabiLocationPanel';
-import { WidePoster } from '@/components/posters/WidePoster';
+import { PosterBlock } from '@/components/sections/PosterBlock';
 import { StructuredData } from '@/components/seo/StructuredData';
 import { Section } from '@/components/ui/Section';
 import { SectionHeading } from '@/components/ui/SectionHeading';
 import { PhoneButton, WhatsAppButton } from '@/components/ui/ContactActions';
 import { MotionReveal } from '@/components/motion/MotionReveal';
-import { posterById } from '@/content/posters';
 import { isLocale, localizedPath, routing, type Locale } from '@/i18n/routing';
 
 export function generateStaticParams() {
@@ -96,7 +95,7 @@ export default async function LocationsPage({
       </Section>
 
       <div className="mx-auto w-full max-w-[86rem] px-5 py-10 sm:px-8 lg:px-12 lg:py-14">
-        <WidePoster poster={posterById('abu-dhabi')} />
+        <PosterBlock id="abu-dhabi" tone="tight" />
       </div>
     </>
   );

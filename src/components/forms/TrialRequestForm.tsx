@@ -55,11 +55,10 @@ export interface TrialRequestFormProps {
 export function TrialRequestForm({
   program,
   surface = 'contact',
-  tone = 'deep',
+
 }: TrialRequestFormProps) {
   const t = useTranslations();
   const locale = useLocale() as MessageLocale;
-  const light = tone === 'light';
   const started = useRef(false);
   const [utm, setUtm] = useState<UtmParams>({});
   const [prepared, setPrepared] = useState<{ href: string; input: TrialRequestInput } | null>(null);
@@ -150,22 +149,22 @@ export function TrialRequestForm({
         data-testid="trial-form-success"
         className={[
           'flex flex-col gap-5 rounded-[1.5rem] border p-6 sm:p-8',
-          light ? 'border-ocean-500/12 bg-white/80' : 'border-pool-300/16 bg-ocean-900/50',
+          'border-line bg-glass',
         ].join(' ')}
       >
-        <h3 className="text-[1.15rem] font-semibold text-ice-50">{t('form.successTitle')}</h3>
-        <p className="max-w-[52ch] text-[0.93rem] leading-relaxed text-slate-300">{t('form.successBody')}</p>
+        <h3 className="text-[1.15rem] font-semibold text-ink">{t('form.successTitle')}</h3>
+        <p className="max-w-[52ch] text-[0.93rem] leading-relaxed text-ink-2">{t('form.successBody')}</p>
         <TrialHandoff
           input={prepared.input}
           surface={surface}
           size="lg"
           label={t('form.submit')}
         />
-        <details className="text-[0.82rem] text-slate-500">
+        <details className="text-[0.82rem] text-ink-4">
           <summary className="cursor-pointer select-none">{t('form.optional')}</summary>
           <pre
             dir="auto"
-            className="mt-3 overflow-x-auto whitespace-pre-wrap rounded-xl border border-pool-300/12 bg-ocean-950/60 p-4 text-[0.78rem] leading-relaxed text-ice-100"
+            className="mt-3 overflow-x-auto whitespace-pre-wrap rounded-xl border border-pool-300/12 bg-glass p-4 text-[0.78rem] leading-relaxed text-ink-2"
           >
             {buildTrialMessage(prepared.input, locale, utm)}
           </pre>
@@ -178,16 +177,12 @@ export function TrialRequestForm({
 
   const selectClass = [
     'w-full appearance-none rounded-xl border px-4 py-3 text-[0.95rem] transition-colors',
-    light
-      ? 'border-ocean-500/15 bg-white text-ocean-950'
-      : 'border-pool-300/18 bg-ocean-950/60 text-ice-50',
+    'border-line bg-inset text-ink placeholder:text-ink-4',
   ].join(' ');
 
   const inputClass = [
     'w-full rounded-xl border px-4 py-3 text-[0.95rem] transition-colors',
-    light
-      ? 'border-ocean-500/15 bg-white text-ocean-950 placeholder:text-slate-500'
-      : 'border-pool-300/18 bg-ocean-950/60 text-ice-50 placeholder:text-slate-600',
+    'border-line bg-inset text-ink placeholder:text-ink-4',
   ].join(' ');
 
   return (
@@ -198,7 +193,7 @@ export function TrialRequestForm({
       data-testid="trial-request-form"
       className={[
         'flex flex-col gap-5 rounded-[1.5rem] border p-6 sm:p-8',
-        light ? 'border-ocean-500/12 bg-white/80' : 'border-pool-300/14 bg-ocean-900/45',
+        'border-line bg-glass',
       ].join(' ')}
     >
       <div className="grid gap-5 sm:grid-cols-2">
@@ -298,7 +293,7 @@ export function TrialRequestForm({
       </Field>
 
       <div>
-        <label htmlFor="trial-consent" className="flex cursor-pointer items-start gap-3 text-[0.86rem] leading-relaxed text-slate-300">
+        <label htmlFor="trial-consent" className="flex cursor-pointer items-start gap-3 text-[0.86rem] leading-relaxed text-ink-2">
           <input
             id="trial-consent"
             type="checkbox"
@@ -310,16 +305,16 @@ export function TrialRequestForm({
           <span>{t('form.consent')}</span>
         </label>
         {errors.consent ? (
-          <p id="trial-consent-error" role="alert" className="mt-2 text-[0.8rem] text-pool-200">
+          <p id="trial-consent-error" role="alert" className="mt-2 text-[0.8rem] text-accent-strong">
             {t('form.validation.consentRequired')}
           </p>
         ) : null}
       </div>
 
       {failed ? (
-        <div role="alert" data-testid="trial-form-error" className="rounded-xl border border-pool-300/25 bg-pool-400/10 p-4">
-          <p className="text-[0.9rem] font-semibold text-ice-50">{t('form.errorTitle')}</p>
-          <p className="mt-1.5 text-[0.85rem] leading-relaxed text-slate-300">{t('form.errorBody')}</p>
+        <div role="alert" data-testid="trial-form-error" className="rounded-xl border border-line bg-accent/10 p-4">
+          <p className="text-[0.9rem] font-semibold text-ink">{t('form.errorTitle')}</p>
+          <p className="mt-1.5 text-[0.85rem] leading-relaxed text-ink-2">{t('form.errorBody')}</p>
           <WhatsAppButton
             label={t('form.fallbackTitle')}
             variant="ghost"
@@ -339,7 +334,7 @@ export function TrialRequestForm({
         {isSubmitting ? t('form.submitting') : t('form.submit')}
       </button>
 
-      <p className="text-[0.78rem] leading-relaxed text-slate-600">{t('form.fallbackBody')}</p>
+      <p className="text-[0.78rem] leading-relaxed text-ink-4">{t('form.fallbackBody')}</p>
     </form>
   );
 }
@@ -359,12 +354,12 @@ function Field({
 }) {
   return (
     <div className="flex flex-col gap-2">
-      <label htmlFor={id} className="text-[0.82rem] font-medium text-ice-100">
+      <label htmlFor={id} className="text-[0.82rem] font-medium text-ink-2">
         {label}
       </label>
       {children}
       {error ? (
-        <p id={`${id}-error`} role="alert" className="text-[0.78rem] text-pool-200">
+        <p id={`${id}-error`} role="alert" className="text-[0.78rem] text-accent-strong">
           {error}
         </p>
       ) : null}

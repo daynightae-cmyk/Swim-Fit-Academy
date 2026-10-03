@@ -33,7 +33,7 @@ export function StickyMobileActions() {
       ].join(' ')}
       style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}
     >
-      <div className="border-t border-pool-300/12 bg-ocean-950/94 px-3 py-2.5 backdrop-blur-xl">
+      <div className="border-t border-line bg-page/94 px-3 py-2.5 backdrop-blur-xl">
         <div className="grid grid-cols-[1.6fr_1fr] gap-2">
           <a
             href="https://wa.me/971569698628"

@@ -28,8 +28,9 @@ export async function TrustRail({ tone = 'light' }: TrustRailProps) {
           aria-hidden="true"
           className="h-16 sm:h-24"
           style={{
-            background:
-              'linear-gradient(to bottom, #03131f 0%, #062434 26%, #0a3550 58%, #cfe7f0 88%, #f4fbfd 100%)',
+            background: 'linear-gradient(to bottom, ' +
+      'var(--transition-from) 0%, var(--transition-via) 30%, ' +
+      'var(--transition-to) 100%)',
           }}
         />
       ) : null}

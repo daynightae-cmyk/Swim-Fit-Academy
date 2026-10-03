@@ -7,11 +7,10 @@ import Link from 'next/link';
 import { PageHero } from '@/components/sections/PageHero';
 import { ProgramsSection } from '@/components/sections/ProgramsSection';
 import { SkillPathSelector } from '@/components/sections/SkillPathSelector';
-import { WidePoster } from '@/components/posters/WidePoster';
+import { PosterBlock } from '@/components/sections/PosterBlock';
 import { StructuredData } from '@/components/seo/StructuredData';
 import { Section } from '@/components/ui/Section';
 import { SectionHeading } from '@/components/ui/SectionHeading';
-import { posterById } from '@/content/posters';
 import { appRoutes, isLocale, localizedPath, routing, type Locale } from '@/i18n/routing';
 
 export function generateStaticParams() {
@@ -73,7 +72,7 @@ export default async function ProgramsPage({
       </Section>
 
       <div className="mx-auto w-full max-w-[86rem] px-5 py-10 sm:px-8 lg:px-12 lg:py-14">
-        <WidePoster poster={posterById('levels')} />
+        <PosterBlock id="levels" tone="tight" />
       </div>
 
       {/* Clean internal linking to the remaining journey. */}

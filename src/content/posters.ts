@@ -11,6 +11,13 @@
 
 export type PosterId = 'brand' | 'technique' | 'progress' | 'levels' | 'abu-dhabi' | 'conversion';
 
+/** Six distinct compositions so the posters never read as one repeated block. */
+export type PosterVariant = 'immersive' | 'split' | 'band' | 'bleed' | 'horizon' | 'close';
+
+/**
+ * Art key. Retained so the authored water treatment can still back a poster when
+ * no verified photograph is supplied for it.
+ */
 export type PosterArtId =
   | 'dawn-lane'
   | 'water-trail'
@@ -43,14 +50,27 @@ export interface PosterRecord {
   readonly microLabelKey: string;
   readonly headlineKey: string;
   readonly sublineKey: string;
+  /** Media-manifest key of the real photograph that carries this poster. */
+  readonly mediaKey: PosterMediaKey;
+  readonly variant: PosterVariant;
   readonly visual: PosterArt | PosterPhoto;
   readonly cta?: { readonly labelKey: string; readonly hrefKind: 'whatsapp' | 'route' };
   readonly tone: 'deep' | 'lifted';
 }
 
+export type PosterMediaKey =
+  | 'posterBrand'
+  | 'posterTechnique'
+  | 'posterProgress'
+  | 'posterAllLevels'
+  | 'posterAbuDhabi'
+  | 'posterConversion';
+
 export const posters: readonly PosterRecord[] = [
   {
     id: 'brand',
+    mediaKey: 'posterBrand',
+    variant: 'immersive',
     order: 1,
     marker: '01',
     microLabelKey: 'poster.brand.micro',
@@ -61,6 +81,8 @@ export const posters: readonly PosterRecord[] = [
   },
   {
     id: 'technique',
+    mediaKey: 'posterTechnique',
+    variant: 'split',
     order: 2,
     marker: '02',
     microLabelKey: 'poster.technique.micro',
@@ -71,6 +93,8 @@ export const posters: readonly PosterRecord[] = [
   },
   {
     id: 'progress',
+    mediaKey: 'posterProgress',
+    variant: 'band',
     order: 3,
     marker: '03',
     microLabelKey: 'poster.progress.micro',
@@ -81,6 +105,8 @@ export const posters: readonly PosterRecord[] = [
   },
   {
     id: 'levels',
+    mediaKey: 'posterAllLevels',
+    variant: 'bleed',
     order: 4,
     marker: '04',
     microLabelKey: 'poster.levels.micro',
@@ -91,6 +117,8 @@ export const posters: readonly PosterRecord[] = [
   },
   {
     id: 'abu-dhabi',
+    mediaKey: 'posterAbuDhabi',
+    variant: 'horizon',
     order: 5,
     marker: '05',
     microLabelKey: 'poster.abudhabi.micro',
@@ -101,6 +129,8 @@ export const posters: readonly PosterRecord[] = [
   },
   {
     id: 'conversion',
+    mediaKey: 'posterConversion',
+    variant: 'close',
     order: 6,
     marker: '06',
     microLabelKey: 'poster.conversion.micro',

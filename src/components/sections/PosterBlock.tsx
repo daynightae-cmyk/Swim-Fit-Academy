@@ -3,15 +3,21 @@ import { posterById, type PosterId } from '@/content/posters';
 
 export interface PosterBlockProps {
   readonly id: PosterId;
+  readonly priority?: boolean;
   readonly program?: 'start' | 'technique' | 'confidence' | 'performance';
   readonly tone?: 'default' | 'tight';
 }
 
 /**
- * Full-width wrapper for a WidePoster inside a page flow.
- * Keeps the horizontal rhythm identical on every page that uses a poster.
+ * Renders a wide cinematic poster from the real supplied photography.
+ *
+ * The record declares which media-manifest asset carries it and which
+ * composition variant to use, so the art direction lives in content and the
+ * component stays presentational.
  */
-export function PosterBlock({ id, program, tone = 'default' }: PosterBlockProps) {
+export function PosterBlock({ id, priority = false, program, tone = 'default' }: PosterBlockProps) {
+  const record = posterById(id);
+
   return (
     <div
       className={
@@ -20,7 +26,18 @@ export function PosterBlock({ id, program, tone = 'default' }: PosterBlockProps)
           : 'mx-auto w-full max-w-[86rem] px-5 py-10 sm:px-8 sm:py-14 lg:px-12 lg:py-16'
       }
     >
-      <WidePoster poster={posterById(id)} program={program} />
+      <WidePoster
+        id={record.id}
+        marker={record.marker}
+        microLabelKey={record.microLabelKey}
+        headlineKey={record.headlineKey}
+        sublineKey={record.sublineKey}
+        mediaKey={record.mediaKey}
+        variant={record.variant}
+        ctaKey={record.cta?.labelKey}
+        priority={priority}
+        program={program}
+      />
     </div>
   );
 }
