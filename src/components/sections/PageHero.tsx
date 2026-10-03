@@ -40,30 +40,30 @@ export function PageHero({
         className="absolute inset-0 -z-20"
         style={{
           background:
-            'linear-gradient(to bottom, rgba(3,19,31,0.62) 0%, rgba(3,19,31,0.5) 40%, #03131f 100%)',
+            'linear-gradient(to bottom, color-mix(in oklab, var(--surface-sunken) 70%, transparent) 0%, color-mix(in oklab, var(--surface-page) 82%, transparent) 40%, var(--surface-page) 100%)',
         }}
       />
 
       <div className="mx-auto w-full max-w-[86rem] px-5 sm:px-8 lg:px-12">
         <div className="max-w-[46rem]">
-          <MotionReveal as="p" className="flex items-center gap-3 text-[0.7rem] font-semibold uppercase tracking-[0.28em] text-pool-300">
+          <MotionReveal as="p" className="flex items-center gap-3 text-[0.7rem] font-semibold uppercase tracking-[0.28em] text-accent">
             {marker ? <span className="font-latin">{marker}</span> : null}
-            {marker ? <span aria-hidden="true" className="h-px w-8 bg-pool-400/45" /> : null}
+            {marker ? <span aria-hidden="true" className="h-px w-8 bg-accent/45" /> : null}
             <span>{kicker}</span>
           </MotionReveal>
 
-          <MotionReveal as="h1" delayMs={80} id="page-heading" className="mt-6 text-[clamp(2.1rem,6.4vw,4.1rem)] font-semibold leading-[1.06] tracking-[-0.025em] text-ice-50">
+          <MotionReveal as="h1" delayMs={80} id="page-heading" className="mt-6 text-[clamp(2.1rem,6.4vw,4.1rem)] font-semibold leading-[1.06] tracking-[-0.025em] text-ink">
             {title}
           </MotionReveal>
 
           {body ? (
-            <MotionReveal as="p" delayMs={150} className="mt-6 max-w-[46ch] text-[1.02rem] leading-[1.75] text-slate-300">
+            <MotionReveal as="p" delayMs={150} className="mt-6 max-w-[46ch] text-[1.02rem] leading-[1.75] text-ink-2">
               {body}
             </MotionReveal>
           ) : null}
 
           {supportLine ? (
-            <p className="mt-6 text-[0.86rem] text-slate-500">{supportLine}</p>
+            <p className="mt-6 text-[0.86rem] text-ink-3">{supportLine}</p>
           ) : null}
 
           {children ? <div className="mt-8">{children}</div> : null}

@@ -118,11 +118,16 @@
   --poster-eyebrow: #35c8e4;
   --poster-copy-ink: #f4fbfd;
   --poster-copy-ink-2: #cbdae2;
-  --section-alt: #f4fbfd;
-  --section-alt-text: #03131f;
-  --section-alt-muted: #526772;
+  --section-alt: #082334;
+  --section-alt-text: #f4fbfd;
+  --section-alt-muted: #8ba1ad;
 
-  --shadow-card: 0 26px 60px -34px rgba(0, 0, 0, 0.9);
+  --space-section-xl: clamp(4.25rem, 7.5vw, 6.75rem);
+  --space-section-lg: clamp(3.25rem, 5.5vw, 5.25rem);
+  --space-section-md: clamp(2.25rem, 4vw, 3.75rem);
+  --space-section-sm: clamp(1.5rem, 2.5vw, 2.5rem);
+
+  --shadow-card: 0 26px 60px -32px rgba(0, 0, 0, 0.9);
   --shadow-raised: 0 40px 90px -40px rgba(0, 0, 0, 0.95);
 
   --grain-opacity: 0.16;
@@ -177,6 +182,11 @@
   --section-alt: #ffffff;
   --section-alt-text: #04263a;
   --section-alt-muted: #526772;
+
+  --space-section-xl: clamp(4.25rem, 7.5vw, 6.75rem);
+  --space-section-lg: clamp(3.25rem, 5.5vw, 5.25rem);
+  --space-section-md: clamp(2.25rem, 4vw, 3.75rem);
+  --space-section-sm: clamp(1.5rem, 2.5vw, 2.5rem);
 
   --shadow-card: 0 22px 46px -32px rgba(6, 45, 68, 0.45);
   --shadow-raised: 0 34px 70px -40px rgba(6, 45, 68, 0.5);
@@ -610,11 +620,13 @@
      identities without flattening the photograph behind it. */
   .poster-copy-panel {
     border: 1px solid var(--poster-panel-edge);
-    border-radius: 1.15rem;
+    border-radius: 1.25rem;
     background: var(--poster-panel-bg);
-    box-shadow: var(--poster-panel-shadow);
-    -webkit-backdrop-filter: blur(16px) saturate(1.06);
-    backdrop-filter: blur(16px) saturate(1.06);
+    box-shadow:
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.12),
+      var(--poster-panel-shadow);
+    -webkit-backdrop-filter: blur(18px) saturate(1.08);
+    backdrop-filter: blur(18px) saturate(1.08);
   }
 }
 

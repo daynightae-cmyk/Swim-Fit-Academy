@@ -1,6 +1,6 @@
+import Image from 'next/image';
 import { getTranslations } from 'next-intl/server';
 
-import { CoachingSceneArt } from '@/components/art/Artwork';
 import { MethodTimeline } from '@/components/sections/MethodTimeline';
 import { MotionReveal } from '@/components/motion/MotionReveal';
 import { WaterCaustics } from '@/components/sections/WaterCaustics';
@@ -8,6 +8,7 @@ import { Section } from '@/components/ui/Section';
 import { SectionHeading } from '@/components/ui/SectionHeading';
 import { coachProfile } from '@/content/coach';
 import { isPublicStatus, publicValue } from '@/content/business';
+import { media } from '@/content/media';
 
 /**
  * 07 — Training method.
@@ -23,6 +24,7 @@ export async function MethodSection() {
   const credentials = isPublicStatus(coachProfile.credentials.status)
     ? publicValue(coachProfile.credentials)
     : null;
+  const coachVisual = media.coachVisual;
 
   return (
     <Section labelledBy="method-heading" spacing="loose" className="overflow-hidden">
@@ -41,44 +43,55 @@ export async function MethodSection() {
           {/* Reserved coach profile slot — driven purely by config. */}
           <div
             data-testid="coach-profile-slot"
-            className="mt-9 overflow-hidden rounded-[1.5rem] border border-pool-300/14 bg-ocean-900/40"
+            className="mt-9 overflow-hidden rounded-[1.5rem] border border-line bg-raised/75 shadow-card backdrop-blur-sm"
           >
-            <div className="relative aspect-[16/10] w-full">
+            <div className="relative aspect-[16/10] w-full overflow-hidden">
               {portrait ? (
                 // eslint-disable-next-line @next/next/no-img-element
                 <img src={portrait} alt={name ?? ''} className="h-full w-full object-cover" />
               ) : (
-                <CoachingSceneArt className="h-full w-full" />
+                <Image
+                  src={coachVisual.src}
+                  alt=""
+                  fill
+                  sizes="(max-width: 768px) 100vw, 40vw"
+                  quality={82}
+                  className="object-cover"
+                  style={{
+                    objectPosition: coachVisual.focalPoint,
+                    filter: coachVisual.grade,
+                  }}
+                />
               )}
               <div
                 aria-hidden="true"
                 className="absolute inset-0"
                 style={{
                   background:
-                    'linear-gradient(to top, rgba(3,19,31,0.95) 0%, rgba(3,19,31,0.25) 52%, rgba(3,19,31,0.08) 100%)',
+                    'linear-gradient(to top, var(--surface-page) 0%, color-mix(in oklab, var(--surface-page) 65%, transparent) 48%, transparent 100%)',
                 }}
               />
             </div>
 
             <div className="p-6">
               {name ? (
-                <p className="text-[1.05rem] font-semibold text-ice-50">{name}</p>
+                <p className="text-[1.05rem] font-semibold text-ink">{name}</p>
               ) : (
-                <p className="text-[0.72rem] font-semibold uppercase tracking-[0.2em] text-pool-300">
+                <p className="text-[0.72rem] font-semibold uppercase tracking-[0.2em] text-accent">
                   {t('slotTitle')}
                 </p>
               )}
               {bio ? (
-                <p className="mt-2.5 text-[0.9rem] leading-relaxed text-slate-300">{bio}</p>
+                <p className="mt-2.5 text-[0.9rem] leading-relaxed text-ink-2">{bio}</p>
               ) : (
-                <p className="mt-2.5 text-[0.9rem] leading-relaxed text-slate-400">{t('slotBody')}</p>
+                <p className="mt-2.5 text-[0.9rem] leading-relaxed text-ink-3">{t('slotBody')}</p>
               )}
               {credentials && credentials.length > 0 ? (
                 <ul className="mt-4 flex flex-wrap gap-2">
                   {credentials.map((item) => (
                     <li
                       key={item}
-                      className="rounded-full border border-pool-300/18 bg-ocean-950/50 px-3 py-1.5 text-[0.78rem] text-ice-100"
+                      className="rounded-full border border-line bg-sunken px-3 py-1.5 text-[0.78rem] text-ink"
                     >
                       {item}
                     </li>
@@ -87,7 +100,7 @@ export async function MethodSection() {
               ) : null}
               {/* Source marker: this slot stays empty until the owner confirms data. */}
               {/* TODO_OWNER_DATA: coach profile requires owner verification. */}
-              <p className="mt-5 border-t border-pool-300/10 pt-4 text-[0.76rem] leading-relaxed text-slate-600">
+              <p className="mt-5 border-t border-line pt-4 text-[0.76rem] leading-relaxed text-ink-4">
                 <span className="font-latin">TODO_OWNER_DATA</span>
               </p>
             </div>

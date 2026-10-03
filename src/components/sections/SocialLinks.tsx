@@ -16,10 +16,9 @@ import { localizedPath } from '@/i18n/routing';
  * candidate-marked until the owner confirms ownership, and no placeholder `#`
  * link is ever rendered.
  */
-export function SocialLinks({ tone = 'deep' }: { readonly tone?: 'deep' | 'light' }) {
+export function SocialLinks({ tone: _tone = 'deep' }: { readonly tone?: 'deep' | 'light' }) {
   const t = useTranslations('footer');
   const locale = useLocale();
-  const light = tone === 'light';
 
   const facebook = business.social.facebook;
   const instagram = business.social.instagram;
@@ -32,21 +31,12 @@ export function SocialLinks({ tone = 'deep' }: { readonly tone?: 'deep' | 'light
       attributionParams(locale, 'contact', `social_${platform}`, readUtmFromLocation()),
     );
 
-  const baseClass = [
-    'inline-flex items-center gap-2.5 rounded-full border px-4 py-2.5 text-[0.86rem] font-medium transition-colors',
-    light
-      ? 'border-ocean-500/12 bg-white text-slate-700 hover:border-pool-500/40'
-      : 'border-pool-300/18 bg-ocean-900/50 text-ice-100 hover:border-pool-300/45',
-  ].join(' ');
+  const baseClass =
+    'inline-flex items-center gap-2.5 rounded-full border border-line bg-sunken px-4 py-2.5 text-[0.86rem] font-medium text-ink transition-colors hover:border-line-strong hover:text-accent';
 
   return (
     <div data-testid="social-links">
-      <p
-        className={[
-          'text-[0.68rem] font-semibold uppercase tracking-[0.24em]',
-          light ? 'text-ocean-500/70' : 'text-pool-300',
-        ].join(' ')}
-      >
+      <p className="text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-accent">
         {t('socialLabel')}
       </p>
       <ul className="mt-4 flex flex-wrap gap-2.5">
@@ -90,8 +80,7 @@ export function SocialLinks({ tone = 'deep' }: { readonly tone?: 'deep' | 'light
               data-testid="social-instagram-candidate"
               className={[
                 baseClass,
-                'cursor-not-allowed border-dashed opacity-70',
-                light ? 'text-slate-500' : 'text-slate-500',
+                'cursor-not-allowed border-dashed text-ink-4 opacity-70',
               ].join(' ')}
             >
               <InstagramIcon size={17} />

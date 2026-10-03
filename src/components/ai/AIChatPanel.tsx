@@ -297,7 +297,7 @@ function ChatPanelCore({ onClose }: { readonly onClose: () => void }) {
       aria-labelledby={titleId}
       data-testid="ai-chat-panel"
       className={[
-        'pointer-events-auto fixed z-[60] flex flex-col overflow-hidden',
+        'pointer-events-auto fixed z-[60] flex flex-col overflow-hidden border border-line bg-page/95 backdrop-blur-2xl',
         PANEL_WIDTH_CLASS,
         PANEL_HEIGHT_CLASS,
         // Mobile: bottom sheet with safe-area padding and a sticky composer.

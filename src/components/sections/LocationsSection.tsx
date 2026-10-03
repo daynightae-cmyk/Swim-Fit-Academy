@@ -12,7 +12,7 @@ export async function LocationsSection({ locale }: { readonly locale?: Locale })
   const t = await getTranslations('locations');
 
   return (
-    <Section labelledBy="locations-heading" spacing="loose" className="border-y border-pool-300/8">
+    <Section labelledBy="locations-heading" spacing="loose" className="border-y border-line">
       <div className="grid gap-10 lg:grid-cols-12 lg:gap-16">
         <div className="lg:col-span-5">
           <SectionHeading

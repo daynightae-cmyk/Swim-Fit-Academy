@@ -18,11 +18,11 @@ export async function FaqTeaserSection({ locale }: { readonly locale: Locale }) 
           <Kicker>{t('kicker')}</Kicker>
           <h2
             id="faq-teaser-heading"
-            className="mt-5 text-balance text-[clamp(1.6rem,3.4vw,2.35rem)] font-semibold leading-[1.18] text-ice-50"
+            className="mt-5 text-balance text-[clamp(1.6rem,3.4vw,2.35rem)] font-semibold leading-[1.18] text-ink"
           >
             {t('title')}
           </h2>
-          <p className="mt-4 max-w-[44ch] text-[0.94rem] leading-relaxed text-slate-400">{t('body')}</p>
+          <p className="mt-4 max-w-[44ch] text-[0.94rem] leading-relaxed text-ink-2">{t('body')}</p>
           <MotionReveal className="mt-7">
             <Link href={localizedPath(locale, 'faq')} className="btn btn-ghost">
               {t('answeredTitle')}

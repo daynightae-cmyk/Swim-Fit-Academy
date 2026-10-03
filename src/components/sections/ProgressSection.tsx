@@ -32,8 +32,8 @@ export async function ProgressSection() {
         </div>
 
         <div className="flex flex-col gap-6 lg:col-span-5">
-          <div className="rounded-[1.5rem] border border-ocean-500/10 bg-white/70 p-6 sm:p-8">
-            <h3 className="text-[0.72rem] font-semibold uppercase tracking-[0.24em] text-ocean-500/70">
+          <div className="rounded-[1.5rem] border border-line bg-raised/75 p-6 shadow-card backdrop-blur-sm sm:p-8">
+            <h3 className="text-[0.72rem] font-semibold uppercase tracking-[0.24em] text-accent">
               {t('timelineTitle')}
             </h3>
             <div className="mt-6">
@@ -41,14 +41,14 @@ export async function ProgressSection() {
             </div>
           </div>
 
-          <div className="rounded-[1.5rem] border border-ocean-500/10 bg-white/70 p-6 sm:p-8">
-            <h3 className="text-[0.72rem] font-semibold uppercase tracking-[0.24em] text-ocean-500/70">
+          <div className="rounded-[1.5rem] border border-line bg-raised/75 p-6 shadow-card backdrop-blur-sm sm:p-8">
+            <h3 className="text-[0.72rem] font-semibold uppercase tracking-[0.24em] text-accent">
               {t('methodologyTitle')}
             </h3>
             <ul className="mt-5 flex flex-col gap-3">
               {t.raw('methodology').map((item: string) => (
-                <li key={item} className="flex items-start gap-3 text-[0.9rem] leading-relaxed text-slate-700">
-                  <span aria-hidden="true" className="mt-[0.55rem] h-1 w-1 shrink-0 rounded-full bg-pool-500" />
+                <li key={item} className="flex items-start gap-3 text-[0.9rem] leading-relaxed text-ink-2">
+                  <span aria-hidden="true" className="mt-[0.55rem] h-1 w-1 shrink-0 rounded-full bg-accent" />
                   {item}
                 </li>
               ))}

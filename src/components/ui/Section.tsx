@@ -26,10 +26,10 @@ export function Section({
 }) {
   const padding =
     spacing === 'tight'
-      ? 'py-14 sm:py-16'
+      ? 'py-10 sm:py-12 lg:py-14'
       : spacing === 'loose'
-        ? 'py-20 sm:py-24 lg:py-28'
-        : 'py-16 sm:py-20 lg:py-24';
+        ? 'py-16 sm:py-20 lg:py-24'
+        : 'py-12 sm:py-16 lg:py-20';
 
   const light = tone === 'light';
 

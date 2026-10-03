@@ -22,15 +22,15 @@ export async function BrandStatement() {
           <Kicker>{t('kicker')}</Kicker>
           <h2
             id="brand-heading"
-            className="mt-6 text-balance text-[clamp(1.85rem,4.4vw,3.35rem)] font-semibold leading-[1.16] tracking-[-0.02em] text-ice-50"
+            className="mt-6 text-balance text-[clamp(1.85rem,4.4vw,3.35rem)] font-semibold leading-[1.18] text-ink"
           >
             {t('headline')}
           </h2>
         </MotionReveal>
 
         <MotionReveal delayMs={120} className="flex flex-col gap-6 lg:col-span-5">
-          <p className="text-[1rem] leading-[1.8] text-slate-300">{t('body')}</p>
-          <p className="border-s border-pool-300/25 ps-4 text-[0.86rem] leading-relaxed text-slate-500">
+          <p className="text-[1rem] leading-[1.8] text-ink-2">{t('body')}</p>
+          <p className="border-s border-line ps-4 text-[0.86rem] leading-relaxed text-ink-3">
             {t('note')}
           </p>
         </MotionReveal>

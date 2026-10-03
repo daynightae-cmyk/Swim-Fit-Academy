@@ -46,20 +46,20 @@ export function SectionHeading({
               aria-hidden="true"
               className={[
                 'font-latin text-[0.72rem] font-semibold tracking-[0.24em]',
-                light ? 'text-ocean-600' : 'text-accent',
+                light ? 'text-accent-strong' : 'text-accent',
               ].join(' ')}
             >
               {marker}
             </span>
           ) : null}
           {marker && kicker ? (
-            <span aria-hidden="true" className={light ? 'h-px w-8 bg-ocean-500/30' : 'h-px w-8 bg-pool-400/40'} />
+            <span aria-hidden="true" className="h-px w-8 bg-accent/40" />
           ) : null}
           {kicker ? (
             <p
               className={[
                 'text-[0.72rem] font-semibold uppercase tracking-[0.22em]',
-                light ? 'text-alt-ink-2' : 'text-accent',
+                light ? 'text-accent-strong' : 'text-accent',
               ].join(' ')}
             >
               {kicker}
@@ -71,7 +71,7 @@ export function SectionHeading({
       <Tag
         id={id}
         className={[
-          'text-balance max-w-[22ch] text-3xl leading-[1.15] sm:text-4xl lg:text-[2.85rem]',
+          'text-balance max-w-[24ch] text-3xl leading-[1.18] sm:text-4xl lg:text-[2.85rem]',
           align === 'center' ? 'mx-auto' : '',
           light ? 'text-alt-ink' : 'text-ink',
         ].join(' ')}
@@ -104,7 +104,7 @@ export function Kicker({ children, tone = 'deep', className }: KickerProps) {
     <p
       className={[
         'text-[0.72rem] font-semibold uppercase tracking-[0.24em]',
-        tone === 'light' ? 'text-slate-600' : 'text-pool-300',
+        tone === 'light' ? 'text-accent-strong' : 'text-accent',
         className ?? '',
       ].join(' ')}
     >
