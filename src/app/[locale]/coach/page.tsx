@@ -84,15 +84,13 @@ export default async function CoachPage({ params }: { readonly params: Promise<{
               {name ? (
                 <p className="text-[1.25rem] font-semibold text-ocean-950">{name}</p>
               ) : (
-                <p className="text-[0.7rem] font-semibold uppercase tracking-[0.24em] text-ocean-500/70">
-                  PROVISIONAL_SITE_MARK
-                </p>
+                <p className="text-[1.05rem] font-semibold text-ocean-950">{t('slotTitle')}</p>
               )}
 
               {bio ? (
                 <p className="text-[0.95rem] leading-[1.75] text-slate-700">{bio}</p>
               ) : (
-                <p className="text-[0.95rem] leading-[1.75] text-slate-600">{t('body')}</p>
+                <p className="text-[0.95rem] leading-[1.75] text-slate-600">{t('slotBody')}</p>
               )}
 
               {credentials && credentials.length > 0 ? (
@@ -114,10 +112,8 @@ export default async function CoachPage({ params }: { readonly params: Promise<{
                 <img src={portrait} alt={name ?? ''} className="w-full rounded-2xl object-cover" />
               ) : null}
 
-              {/* Source marker for the pending data slot. */}
-              {/* TODO_OWNER_DATA: coach profile requires owner verification. */}
               <p className="mt-auto border-t border-ocean-500/10 pt-4 text-[0.76rem] leading-relaxed text-slate-500">
-                <span className="font-latin">TODO_OWNER_DATA</span> — {t('disclaimer')}
+                {t('disclaimer')}
               </p>
             </div>
           </div>

@@ -249,9 +249,8 @@ export function EditorialFooter() {
               <LanguageSwitch />
             </div>
             <div className="mt-6">
-              <BrandLogo height={46} className="h-auto w-auto opacity-90" />
+              <BrandLogo height={68} useBadge className="h-auto w-auto rounded-full opacity-95" />
             </div>
-            <p className="mt-5 max-w-[30ch] text-[0.78rem] leading-relaxed text-ink-3">{t('provisional')}</p>
           </div>
         </div>
 
@@ -268,7 +267,7 @@ export function EditorialFooter() {
             <span>{t('rights')}</span>
           </p>
           <p className="max-w-[62ch] text-ink-4">
-            {t('developerCredit')} · {t('developerCreditNote')}
+            {t('developerCredit')}
           </p>
         </div>
       </div>
