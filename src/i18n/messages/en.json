@@ -12,8 +12,8 @@
     "closeMenu": "Close menu",
     "switchLanguage": "العربية",
     "switchLanguageLabel": "Switch to Arabic",
-    "provisionalMark": "PROVISIONAL_SITE_MARK",
-    "provisionalMarkNote": "Identity is provisional until the official academy logo is approved.",
+    "provisionalMark": "Official Swim Fit Academy logo",
+    "provisionalMarkNote": "Official owner-approved circular academy logo.",
     "backHome": "Back to home",
     "loading": "Loading",
     "readAloud": "Read reply aloud",
@@ -46,7 +46,7 @@
     },
     "locations": {
       "title": "Training Locations in Abu Dhabi | Swim Fit Academy",
-      "description": "The confirmed service area is Abu Dhabi. Exact venues and times are confirmed directly based on program and availability."
+      "description": "Swimming instruction in Abu Dhabi, with the most suitable venue and time arranged by program, level, and availability."
     },
     "results": {
       "title": "Progress and Skill Milestones | Swim Fit Academy Abu Dhabi",
@@ -54,7 +54,7 @@
     },
     "faq": {
       "title": "Frequently Asked Questions | Swim Fit Academy Abu Dhabi",
-      "description": "Documented answers about training in Abu Dhabi, contact, and levels, plus a clear note on details that need management confirmation."
+      "description": "Quick answers about training in Abu Dhabi, contact, and levels, with changing details confirmed directly on WhatsApp."
     },
     "contact": {
       "title": "Contact Us | Trial Request in Abu Dhabi | Swim Fit Academy",
@@ -80,7 +80,7 @@
   },
   "trustRail": {
     "label": "Service scope",
-    "title": "What we can confirm today",
+    "title": "Everything you need to get started",
     "items": {
       "city": "Abu Dhabi",
       "levels": "Instruction for all levels",
@@ -92,10 +92,10 @@
     "kicker": "The idea",
     "headline": "Water is the clearest place to learn: the body understands before the mind does.",
     "body": "At Swim Fit Academy the experience is built around felt progress: a cleaner position, a calmer breath, and confidence that compounds every session. The outcome is the goal, and the method is a staged progression — from comfort in the water to coordinated performance.",
-    "note": "We do not publish numbers, awards, or reviews that are not verified. Anything not confirmed by management stays a direct question on WhatsApp.",
+    "note": "Clear coaching, structured progression, and a steady focus on confidence and technique in the water.",
     "logoAltDay": "Swim Fit Academy logo on a light background",
     "logoAltNight": "Swim Fit Academy logo on a dark background",
-    "provisionalNote": "The identity shown is the official supplied logo from the reference pack, verified by visual inspection."
+    "provisionalNote": "The official Swim Fit Academy logo is used throughout the current identity."
   },
   "poster": {
     "brand": {
@@ -124,8 +124,8 @@
     },
     "abudhabi": {
       "micro": "Abu Dhabi",
-      "headline": "Swimming instruction in Abu Dhabi. The fine details we confirm with you directly.",
-      "subline": "The confirmed service area is Abu Dhabi. Venues and times are set per program and availability.",
+      "headline": "Swimming instruction in Abu Dhabi.",
+      "subline": "Venue and session time are arranged around the program, level, and availability.",
       "alt": "An abstract Abu Dhabi horizon reflected on the surface of pool water."
     },
     "conversion": {
@@ -139,7 +139,7 @@
   "programsSection": {
     "kicker": "Programs",
     "title": "Start where you are.",
-    "body": "The paths are organised around skill intent rather than unverified commercial packages. Choose the closest one, and we will confirm the next step with you.",
+    "body": "The paths are organised around your goal and current level. Choose the closest fit and we will help you take the next step.",
     "cta": "Ask about the right program",
     "closerTitle": "Not sure where to start?",
     "closerBody": "Let the assistant guide you, or talk to us directly on WhatsApp.",
@@ -196,8 +196,8 @@
   },
   "method": {
     "kicker": "Method",
-    "title": "Method before biography.",
-    "body": "The full coach profile has not been published because it still needs management approval. What can be verified today is the training sequence itself.",
+    "title": "A clear method. Confident progress.",
+    "body": "Professional swimming instruction built around a clear progression: comfort in the water, body position, breathing, propulsion, then confident coordinated performance.",
     "timelineTitle": "Training sequence",
     "stages": {
       "comfort": {
@@ -249,13 +249,13 @@
       }
     },
     "disclaimer": "General swimming guidance, not medical advice and not a guarantee of results.",
-    "slotTitle": "Coach profile — awaiting approval",
-    "slotBody": "A reserved slot for the approved coach profile. Until management confirms it, this page stays methodology only and publishes no name or credential."
+    "slotTitle": "Professional coaching, clear progression",
+    "slotBody": "Training follows a structured sequence: water comfort, body position, breathing, propulsion, then connecting the skills into balanced, confident swimming."
   },
   "results": {
     "kicker": "Results",
     "title": "Real progress is built step by step.",
-    "body": "Instead of vague numbers or unverified opinions, we show what can actually be tracked: a better body position, then balance, then progress toward streamline kicking.",
+    "body": "We focus on visible skill progress: better body position, stronger balance, then a gradual move toward streamlined kicking.",
     "storyKicker": "Progress story",
     "storyTitle": "From hesitant body position to a streamline kick with the arms extended.",
     "storySubject": "Minor swimmer — published without a name.",
@@ -267,8 +267,8 @@
     },
     "timelineTitle": "Skill milestones",
     "reviewsTitle": "Parent and swimmer feedback",
-    "reviewsEmpty": "Coming soon: parent and swimmer feedback after verification and approval.",
-    "reviewsNote": "No testimonial or rating is published before it is verified and its owner has approved it.",
+    "reviewsEmpty": "Parent and swimmer feedback will be added here as it becomes available.",
+    "reviewsNote": "Feedback is presented with care for accuracy and privacy.",
     "methodologyTitle": "How progress is judged",
     "methodology": [
       "Body position first: every later improvement builds on it.",
@@ -276,27 +276,27 @@
       "The kick is built on stability in the pool, not on early speed.",
       "Coordination of position, breathing, and kick comes after each is solid on its own."
     ],
-    "noData": "Verified feedback will appear here once approved."
+    "noData": "Parent and swimmer feedback will appear here as it becomes available."
   },
   "locations": {
     "kicker": "Locations",
-    "title": "Abu Dhabi is the confirmed service area today.",
-    "body": "Venues and times are set per program and availability. We arrange the right slot over WhatsApp instead of publishing unconfirmed details.",
+    "title": "Swimming instruction across Abu Dhabi.",
+    "body": "We serve swimmers in Abu Dhabi, with the most suitable venue and time arranged around the program, level, and availability.",
     "cardTitle": "Abu Dhabi",
-    "cardBody": "Training venues and times are determined by program and availability.",
-    "emptyNote": "No specific venue has been approved yet, so no unconfirmed pool name or map pin is shown.",
+    "cardBody": "Training venue and session time are arranged around the program, level, and availability.",
+    "emptyNote": "Message us on WhatsApp and we will help confirm the most suitable venue and session time.",
     "whatsappCta": "Message on WhatsApp",
     "phoneCta": "Call now",
     "supportLine": "Abu Dhabi — venue and time details follow program and availability.",
-    "gridTitle": "Verified venues",
-    "gridEmpty": "No verified venues yet."
+    "gridTitle": "Find the right venue",
+    "gridEmpty": "Message us on WhatsApp to confirm the most suitable venue and time for you."
   },
   "faq": {
     "kicker": "FAQ",
-    "title": "Straight answers, and a clear note on what needs confirming.",
-    "body": "We answer what can be confirmed today. For anything that needs management approval, we say so immediately and connect you on WhatsApp.",
-    "answeredTitle": "We can confirm these now",
-    "confirmTitle": "Needs management confirmation",
+    "title": "Quick answers before you start.",
+    "body": "Here are the essentials. For changing details such as pricing, schedules, and the best venue, message us directly on WhatsApp.",
+    "answeredTitle": "The essentials",
+    "confirmTitle": "Program-specific details",
     "questions": {
       "is-in-abu-dhabi": "Is the training in Abu Dhabi?",
       "how-to-contact": "How do I get in touch?",
@@ -311,16 +311,16 @@
       "cancellation-policy": "What is the cancellation policy?"
     },
     "answers": {
-      "is-in-abu-dhabi": "Yes. The confirmed service area is Abu Dhabi. Exact venues and times are set per program and availability.",
+      "is-in-abu-dhabi": "Yes. Training is available in Abu Dhabi, with the venue and time arranged around the program and availability.",
       "how-to-contact": "The fastest route is WhatsApp on 056 969 8628, or a direct call to the same number. It appears on every page of the site.",
       "different-levels": "Yes. Instruction is available for all levels, and we confirm your starting point against your current goal.",
       "arabic-english": "Yes. The site works in Arabic and English, and you can switch languages on any page without losing your place."
     },
-    "confirmPrefix": "This detail needs direct confirmation from academy management.",
-    "confirmBody": "We will not guess a number or a venue. Ask management directly on WhatsApp and they will reply.",
+    "confirmPrefix": "This detail can vary by program and availability.",
+    "confirmBody": "Message us on WhatsApp and we will confirm the latest details for your level and goal.",
     "confirmCta": "Ask on WhatsApp",
     "contactShortcut": "Or reach us directly",
-    "schemaNote": "Only the confirmed questions below are documented. Everything else needs management confirmation."
+    "schemaNote": "The essentials are documented here; changing details are confirmed directly on WhatsApp."
   },
   "contact": {
     "kicker": "Contact",
@@ -411,7 +411,7 @@
     "instagramCandidate": "Candidate profile",
     "rights": "All rights reserved.",
     "locationLine": "Abu Dhabi, United Arab Emirates",
-    "provisional": "Provisional identity: PROVISIONAL_SITE_MARK",
+    "provisional": "Official Swim Fit Academy identity",
     "developerCredit": "Digital experience by KNOUX — Sadek Elgazar",
     "developerCreditNote": "A KNOUX link will be added as soon as an official URL exists."
   },
@@ -428,13 +428,13 @@
     "assistant": "Assistant",
     "unavailable": "The AI assistant is briefly unavailable — WhatsApp is ready.",
     "errorBody": "There was a connection problem. Try again, or continue on WhatsApp.",
-    "disclaimer": "The assistant only shares documented information. Anything needing management confirmation is handed to WhatsApp.",
+    "disclaimer": "The assistant explains programs and core information, then connects you on WhatsApp for details that vary by availability.",
     "handoff": {
       "title": "Continue on WhatsApp",
-      "body": "This detail needs direct academy confirmation.",
+      "body": "We can confirm the best-fit details for you directly on WhatsApp.",
       "cta": "Open WhatsApp",
-      "reason": "This detail needs direct academy confirmation from management.",
-      "prefill": "Hello Swim Fit Academy, I would like to ask about the details that need management confirmation."
+      "reason": "Details can vary by program and availability.",
+      "prefill": "Hello Swim Fit Academy 👋\nI would like details about the right program, venue, and session time."
     },
     "voiceEnable": "Enable voice input",
     "voiceStop": "Stop reading",
@@ -528,13 +528,13 @@
       "programs": "The site lists paths by intent: start swimming, build technique, build confidence, and advance performance. Tell me your current level and I will point you to the closest starting point.",
       "beginner": "If you are starting from scratch, the first step is water comfort, then floating and controlled breathing. The first path on the site is built around exactly that, and I can connect you on WhatsApp for the details.",
       "technique": "Better technique starts with body position and breathing, then the kick, then coordination. The second path on the site explains those steps, and I can connect you on WhatsApp for more detail.",
-      "locations": "The confirmed service area is Abu Dhabi. The exact venue and the times are set per program and availability, and I can connect you on WhatsApp to confirm.",
-      "schedule": "Times follow the program and availability, so we do not publish a fixed timetable. I can connect you on WhatsApp so we can agree on a suitable slot.",
-      "pricing": "Prices are not part of the currently verified information, so I will not guess a number. Ask management directly on WhatsApp.",
-      "trial": "Trial class details need confirmation from management. I can prepare a WhatsApp message that asks about it directly.",
-      "ladies": "Ladies-only sessions need confirmation from management before I can confirm them. I can connect you on WhatsApp right now.",
-      "coach": "The site explains the training method, but the full coach details and credentials need management approval before they are shown as facts.",
-      "reviews": "We do not publish unverified ratings or reviews. If you have a question about outcomes, I can connect you on WhatsApp to discuss it with management.",
+      "locations": "Training is available in Abu Dhabi. Venue and session time depend on the program, level, and availability, and I can connect you on WhatsApp to find the best fit.",
+      "schedule": "Session times depend on the program and availability. I can connect you on WhatsApp to find a suitable slot.",
+      "pricing": "Pricing can vary by program and the training details you need. Message us on WhatsApp for the current option that fits you.",
+      "trial": "Trial-class availability depends on the program and schedule. I can prepare a WhatsApp message so you can ask directly.",
+      "ladies": "Ladies-only session availability depends on the current schedule. I can connect you on WhatsApp to check the closest suitable option.",
+      "coach": "The site explains the training method and progression. For additional coach-specific details, I can connect you directly on WhatsApp.",
+      "reviews": "The progress section explains how skill development is tracked. For additional questions about outcomes, message us directly on WhatsApp.",
       "language": "The site is available in Arabic and English, and you can switch language from the top of any page without losing your place.",
       "phone": "The direct number is 056 969 8628, and the same number works on WhatsApp.",
       "whatsapp": "Of course — the WhatsApp number is 056 969 8628, and I can prepare the message for you.",
