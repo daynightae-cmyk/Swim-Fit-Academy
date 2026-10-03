@@ -3,15 +3,15 @@
 /**
  * Day / Night identity.
  *
- * First visit follows the system preference. An explicit user choice is stored in
- * localStorage and always wins. The inline bootstrap script in the layout applies
+ * First visit always starts in the product night identity. An explicit user choice is stored in
+ * localStorage and wins on later visits. The inline bootstrap script in the layout applies
  * the stored theme before first paint, so there is never a flash of the wrong
  * identity — no logo swap, no background flip, no hydration mismatch.
  */
 
 export type ThemeMode = 'day' | 'night';
 
-export const THEME_STORAGE_KEY = 'sfa-theme';
+export const THEME_STORAGE_KEY = 'sfa-theme-v2';
 export const DEFAULT_THEME: ThemeMode = 'night';
 
 /**
@@ -21,7 +21,7 @@ export const DEFAULT_THEME: ThemeMode = 'night';
 export const THEME_BOOTSTRAP_SCRIPT = `(function(){try{
 var k='${THEME_STORAGE_KEY}';
 var s=localStorage.getItem(k);
-var t=(s==='day'||s==='night')?s:(window.matchMedia('(prefers-color-scheme: light)').matches?'day':'${DEFAULT_THEME}');
+var t=(s==='day'||s==='night')?s:'${DEFAULT_THEME}';
 var r=document.documentElement;
 r.dataset.theme=t;
 r.style.colorScheme=t;
@@ -43,7 +43,7 @@ function readStoredTheme(): ThemeMode | null {
 }
 
 function systemTheme(): ThemeMode {
-  return window.matchMedia('(prefers-color-scheme: light)').matches ? 'day' : DEFAULT_THEME;
+  return DEFAULT_THEME;
 }
 
 /** Resolves the active theme, preferring an explicit stored choice. */
