@@ -67,3 +67,4 @@ export const OWNER_REQUIRED_TOPICS = [
 ] as const;
 
 export type OwnerRequiredTopic = (typeof OWNER_REQUIRED_TOPICS)[number];
+export { ACADEMY_KNOWLEDGE, KNOWLEDGE_ARTICLE_COUNT, bestKnowledgeAnswer, knowledgeContext, searchAcademyKnowledge } from './academy-knowledge';
