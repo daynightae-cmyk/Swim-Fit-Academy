@@ -21,8 +21,7 @@ export const metadata: Metadata = {
     // The night badge is the primary favicon: it is legible at 16px on both
     // light and dark browser chrome.
     icon: [
-      { url: '/media/brand/logo-night-badge.png', type: 'image/png', sizes: '800x800' },
-      { url: '/brand/favicon.svg', type: 'image/svg+xml' },
+      { url: '/media/brand/logo-night-badge-tight.png', type: 'image/png', sizes: '800x800' },
     ],
     apple: [{ url: '/apple-icon' }],
   },
