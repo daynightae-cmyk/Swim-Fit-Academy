@@ -43,9 +43,9 @@ export async function MethodSection() {
           {/* Reserved coach profile slot — driven purely by config. */}
           <div
             data-testid="coach-profile-slot"
-            className="mt-9 overflow-hidden rounded-[1.5rem] border border-line bg-raised/75 shadow-card backdrop-blur-sm"
+            className="mt-9 overflow-hidden rounded-[1.75rem] border border-line bg-raised/85 shadow-card backdrop-blur-md transition-all duration-300 hover:border-line-strong"
           >
-            <div className="relative aspect-[16/10] w-full overflow-hidden">
+            <div className="relative aspect-[4/3] w-full overflow-hidden sm:aspect-[16/11]">
               {portrait ? (
                 // eslint-disable-next-line @next/next/no-img-element
                 <img src={portrait} alt={name ?? ''} className="h-full w-full object-cover" />
@@ -54,8 +54,8 @@ export async function MethodSection() {
                   src={coachVisual.src}
                   alt=""
                   fill
-                  sizes="(max-width: 768px) 100vw, 40vw"
-                  quality={82}
+                  sizes="(max-width: 768px) 100vw, 45vw"
+                  quality={88}
                   className="object-cover"
                   style={{
                     objectPosition: coachVisual.focalPoint,
@@ -68,12 +68,16 @@ export async function MethodSection() {
                 className="absolute inset-0"
                 style={{
                   background:
-                    'linear-gradient(to top, var(--surface-page) 0%, color-mix(in oklab, var(--surface-page) 65%, transparent) 48%, transparent 100%)',
+                    'linear-gradient(to top, var(--surface-page) 0%, color-mix(in oklab, var(--surface-page) 60%, transparent) 40%, transparent 100%)',
                 }}
+              />
+              <div
+                aria-hidden="true"
+                className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-accent to-transparent opacity-50"
               />
             </div>
 
-            <div className="p-6">
+            <div className="p-7">
               {name ? (
                 <p className="text-[1.05rem] font-semibold text-ink">{name}</p>
               ) : (

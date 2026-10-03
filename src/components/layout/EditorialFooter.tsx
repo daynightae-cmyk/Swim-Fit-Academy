@@ -85,13 +85,21 @@ export function EditorialFooter() {
         }}
       />
 
-      {/* Ghost wordmark, themed */}
+      {/* Giant Campaign Ghost wordmark spanning full viewport */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-x-0 bottom-[6%] select-none text-center font-latin text-[clamp(3rem,17vw,14rem)] font-extrabold leading-none tracking-[0.03em]"
+        className="pointer-events-none absolute inset-x-0 bottom-[4%] select-none text-center font-latin text-[clamp(4.5rem,23vw,21rem)] font-black leading-none tracking-tight overflow-hidden"
         style={{ color: 'var(--ghost-wordmark)' }}
       >
         SWIM FIT
+        {locale === 'ar' ? (
+          <div
+            className="mt-[-2vw] font-sans text-[clamp(1.2rem,3.8vw,3.2rem)] font-black tracking-normal opacity-70"
+            style={{ color: 'var(--ghost-wordmark)' }}
+          >
+            سويم فيت أكاديمي · أبوظبي
+          </div>
+        ) : null}
       </div>
 
       {/* Wave on the top edge */}

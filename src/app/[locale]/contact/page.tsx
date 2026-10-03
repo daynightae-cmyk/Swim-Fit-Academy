@@ -3,6 +3,8 @@ import { buildRouteMetadata } from '@/lib/seo/metadata';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 
+import Image from 'next/image';
+import { media } from '@/content/media';
 import { PageHero } from '@/components/sections/PageHero';
 import { TrialRequestForm } from '@/components/forms/TrialRequestForm';
 import { ContactShortcuts, SocialLinks } from '@/components/sections/SocialLinks';
@@ -61,18 +63,18 @@ export default async function ContactPage({ params }: { readonly params: Promise
             <PhoneButton label={t('phoneCta')} surface="contact_hero" size="lg" />
           </div>
           <p className="flex flex-col gap-1">
-            <span className="text-[0.72rem] font-semibold uppercase tracking-[0.22em] text-ink-4">
+            <span className="text-[0.72rem] font-bold uppercase tracking-[0.26em] text-accent">
               {t('phoneLabel')}
             </span>
             <a
               href="tel:+971569698628"
               dir="ltr"
               data-testid="contact-phone-display"
-              className="font-latin text-[1.65rem] font-semibold tracking-tight text-ink transition-colors hover:text-accent sm:text-[2rem]"
+              className="font-latin text-[2.1rem] sm:text-[2.6rem] font-bold tracking-tight text-ink transition-colors hover:text-accent"
             >
               {phoneDisplay}
             </a>
-            <span dir="ltr" className="font-latin text-[0.86rem] text-ink-3">
+            <span dir="ltr" className="font-latin text-[0.88rem] text-ink-3">
               {phoneInternational}
             </span>
           </p>
@@ -93,7 +95,28 @@ export default async function ContactPage({ params }: { readonly params: Promise
             </div>
           </div>
 
-          <div className="flex flex-col gap-8 lg:col-span-5">
+          <div className="flex flex-col gap-7 lg:col-span-5">
+            {/* Real pool atmosphere frame */}
+            <div className="relative aspect-[16/10] w-full overflow-hidden rounded-[1.5rem] border border-line shadow-card">
+              <Image
+                src={media.contactVisual.src}
+                alt=""
+                fill
+                sizes="(max-width: 1024px) 100vw, 42vw"
+                quality={86}
+                className="object-cover"
+                style={{ objectPosition: media.contactVisual.focalPoint, filter: media.contactVisual.grade }}
+              />
+              <div
+                aria-hidden="true"
+                className="absolute inset-0 bg-gradient-to-t from-[var(--surface-page)] via-transparent to-transparent opacity-60"
+              />
+              <div
+                aria-hidden="true"
+                className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-accent to-transparent opacity-50"
+              />
+            </div>
+
             <div className="rounded-[1.5rem] border border-line bg-raised/75 p-6 shadow-card backdrop-blur-sm sm:p-7">
               <SocialLinks />
               <div className="mt-7 border-t border-line pt-5">
