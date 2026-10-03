@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 248 56" width="248" height="56" role="img" aria-labelledby="t">
+  <title id="t">Swim Fit Academy</title>
+  <desc>PROVISIONAL_SITE_MARK — provisional site identity, not an owner-approved logo.</desc>
+  <defs>
+    <linearGradient id="sfa-mark-gradient-wordmark" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#78dcef"/>
+      <stop offset="100%" stop-color="#15b8d6"/>
+    </linearGradient>
+  </defs>
+  <g transform="translate(2 4)" fill="none" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke">
+    <path d="M11 25.5 C17 19.5 23 19.5 29 25.5 C35 31.5 41 31.5 47 25.5" stroke="url(#sfa-mark-gradient-wordmark)" stroke-width="6"/>
+    <path d="M11 41.5 C17 35.5 23 35.5 29 41.5 C35 47.5 41 47.5 47 41.5" stroke="#35c8e4" stroke-width="5"/>
+    <path d="M49 14 V50" stroke="#78dcef" stroke-width="5"/>
+    <path d="M49 25.5 H45.5" stroke="#78dcef" stroke-width="4"/>
+    <circle cx="49" cy="14" r="3.4" fill="#35c8e4"/>
+  </g>
+  <line x1="60" y1="6" x2="60" y2="50" stroke="rgba(120,220,239,0.28)" stroke-width="1"/>
+  <text x="74" y="26" fill="#f4fbfd" font-family="var(--font-manrope), system-ui, sans-serif" font-size="19" font-weight="700" letter-spacing="2.6">SWIM FIT</text>
+  <text x="75" y="46" fill="#8ba1ad" font-family="var(--font-manrope), system-ui, sans-serif" font-size="10.5" font-weight="500" letter-spacing="6.4">ACADEMY</text>
+</svg>

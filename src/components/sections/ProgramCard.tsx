@@ -1,0 +1,192 @@
+'use client';
+
+import { useLocale, useTranslations } from 'next-intl';
+import { useCallback } from 'react';
+
+import { SkillIcon, WhatsAppIcon } from '@/components/ui/Icon';
+import { attributionParams, track } from '@/lib/analytics';
+import { readUtmFromLocation } from '@/lib/utm';
+import { buildProgramMessage } from '@/lib/messages';
+import { buildWhatsAppUrl } from '@/lib/whatsapp';
+import type { ProgramId, ProgramRecord, ProgramSkillCueId } from '@/content/programs';
+
+const CUE_ICON: Record<ProgramSkillCueId, Parameters<typeof SkillIcon>[0]['name']> = {
+  'water-comfort': 'entry',
+  floating: 'flow',
+  'breath-control': 'lungs',
+  streamline: 'arrow',
+  kick: 'kick',
+  'stroke-coordination': 'rhythm',
+  endurance: 'efficiency',
+  'race-readiness': 'efficiency',
+};
+
+export interface ProgramCardProps {
+  readonly program: ProgramRecord;
+  readonly tone?: 'deep' | 'light';
+  readonly onOpenAssistant?: (programId: ProgramId) => void;
+}
+
+/**
+ * Skill-intent program card.
+ *
+ * Contains no price, session count, class size, age restriction, ratio or
+ * guaranteed outcome — those are owner-required and deliberately absent.
+ */
+export function ProgramCard({ program, tone = 'deep', onOpenAssistant }: ProgramCardProps) {
+  const locale = useLocale() as 'ar' | 'en';
+  const t = useTranslations();
+  const light = tone === 'light';
+
+  const whatsappHref = buildWhatsAppUrl(buildProgramMessage(program.id, locale));
+
+  const onCta = useCallback(() => {
+    track('program_cta_click', {
+      ...attributionParams(locale, 'programs', 'program_card', readUtmFromLocation()),
+      program: program.id,
+      intent: `program_${program.id}`,
+    });
+  }, [locale, program.id]);
+
+  const onAssistant = useCallback(() => {
+    track('ai_chat_open', {
+      ...attributionParams(locale, 'programs', 'program_card_assistant', readUtmFromLocation()),
+      program: program.id,
+    });
+    onOpenAssistant?.(program.id);
+    const existing = document.getElementById('ai-launcher');
+    if (existing instanceof HTMLElement) {
+      existing.click();
+    }
+  }, [locale, program.id, onOpenAssistant]);
+
+  return (
+    <article
+      data-program={program.id}
+      className={[
+        'refract group relative flex h-full flex-col rounded-[1.375rem] border p-6 sm:rounded-[1.5rem] sm:p-7',
+        light
+          ? 'border-line bg-raised text-alt-ink'
+          : 'border-line bg-inset text-ink',
+      ].join(' ')}
+      style={{ ['--card-depth' as string]: `${program.depthPercent}%` }}
+    >
+      {/* waterline hover */}
+      <span
+        aria-hidden="true"
+        className={[
+          'pointer-events-none absolute inset-x-0 bottom-0 h-[2px] origin-left scale-x-0 transition-transform duration-700 ease-[var(--ease-water)] group-hover:scale-x-100 group-focus-within:scale-x-100',
+          light ? 'bg-ocean-500/60' : 'bg-gradient-to-r from-transparent via-pool-400 to-transparent',
+        ].join(' ')}
+      />
+
+      <div className="flex items-start justify-between gap-4">
+        <div className="flex items-center gap-3">
+          <span
+            className={[
+              'inline-flex h-11 w-11 items-center justify-center rounded-xl border',
+              light ? 'border-line bg-sunken text-ocean-700' : 'border-line bg-sunken text-accent',
+            ].join(' ')}
+          >
+            <SkillIcon name={program.icon} size={21} />
+          </span>
+          <span
+            aria-hidden="true"
+            className={[
+              'font-latin text-[0.72rem] font-semibold tracking-[0.24em]',
+              light ? 'text-ocean-500/60' : 'text-accent',
+            ].join(' ')}
+          >
+            {program.marker}
+          </span>
+        </div>
+        <span
+          className={[
+            'font-latin text-[0.66rem] font-medium uppercase tracking-[0.18em]',
+            light ? 'text-slate-500' : 'text-slate-500',
+          ].join(' ')}
+        >
+          {t('programsSection.progressLabel')}
+        </span>
+      </div>
+
+      <h3
+        className={[
+          'mt-6 text-balance text-[1.42rem] font-semibold leading-[1.2]',
+          light ? 'text-alt-ink' : 'text-ink',
+        ].join(' ')}
+      >
+        {t(`program.${program.id}.title`)}
+      </h3>
+
+      <p
+        className={[
+          'mt-3 text-[0.95rem] leading-[1.75]',
+          light ? 'text-alt-ink-2' : 'text-ink-2',
+        ].join(' ')}
+      >
+        {t(`program.${program.id}.goal`)}
+      </p>
+
+      <p
+        className={[
+          'mt-3 text-[0.86rem] leading-relaxed',
+          light ? 'text-alt-ink-2' : 'text-ink-3',
+        ].join(' ')}
+      >
+        {t(`program.${program.id}.suitability`)}
+      </p>
+
+      {/* skill cues — generic intent, never a score */}
+      <ul className="mt-6 flex flex-wrap gap-2" aria-label={t('programsSection.progressLabel')}>
+        {program.skillCues.map((cue) => (
+          <li
+            key={cue}
+            className={[
+              'inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1.5 text-[0.74rem] font-medium',
+              light
+                ? 'border-line bg-sunken text-alt-ink-2'
+                : 'border-line bg-sunken text-ink',
+            ].join(' ')}
+          >
+            <SkillIcon name={CUE_ICON[cue]} size={13} />
+            {t(`skillCue.${cue}`)}
+          </li>
+        ))}
+      </ul>
+
+      <div className="mt-auto pt-7">
+        <div className="flex flex-wrap items-center gap-2.5">
+          <a
+            href={whatsappHref}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={onCta}
+            data-analytics="program_cta_click"
+            data-program-cta={program.id}
+            className={[
+              'btn px-4 py-2.5 text-[0.82rem]',
+              light ? 'btn-primary' : 'btn-primary',
+            ].join(' ')}
+          >
+            <WhatsAppIcon size={16} />
+            <span>{t('programsSection.cta')}</span>
+          </a>
+          <button
+            type="button"
+            onClick={onAssistant}
+            data-program-assistant={program.id}
+            className={[
+              'btn px-4 py-2.5 text-[0.82rem]',
+              light ? 'btn-quiet' : 'btn-ghost',
+            ].join(' ')}
+          >
+            {t('programsSection.aiCta')}
+          </button>
+        </div>
+      </div>
+    </article>
+  );
+}
+
+export default ProgramCard;

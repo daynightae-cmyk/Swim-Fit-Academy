@@ -1,0 +1,6 @@
+allowBuilds:
+  '@swc/core': true
+  '@parcel/watcher': true
+  protobufjs: true
+  unrs-resolver: true
+  '@google/genai': false

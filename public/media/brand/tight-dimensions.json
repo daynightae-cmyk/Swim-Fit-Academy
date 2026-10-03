@@ -1,0 +1,30 @@
+[
+  {
+    "file": "logo-night-tight.png",
+    "width": 568,
+    "height": 380,
+    "ratio": 1.495,
+    "bytes": 259266
+  },
+  {
+    "file": "logo-day-tight.png",
+    "width": 583,
+    "height": 394,
+    "ratio": 1.48,
+    "bytes": 272375
+  },
+  {
+    "file": "logo-night-badge-tight.png",
+    "width": 800,
+    "height": 800,
+    "ratio": 1,
+    "bytes": 335925
+  },
+  {
+    "file": "logo-day-badge-tight.png",
+    "width": 800,
+    "height": 800,
+    "ratio": 1,
+    "bytes": 372682
+  }
+]
