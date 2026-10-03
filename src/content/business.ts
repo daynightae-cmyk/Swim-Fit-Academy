@@ -88,8 +88,8 @@ export interface BusinessConfig {
     readonly instagram: SocialProfile;
   };
   readonly mark: {
-    /** Site identity is provisional until an owner-approved logo exists. */
-    readonly status: 'PROVISIONAL_SITE_MARK';
+    /** Owner-approved academy identity. */
+    readonly status: 'OWNER_APPROVED_LOGO';
     readonly label: string;
   };
 }
@@ -227,8 +227,8 @@ export const business: BusinessConfig = {
     },
   },
   mark: {
-    status: 'PROVISIONAL_SITE_MARK',
-    label: 'PROVISIONAL_SITE_MARK',
+    status: 'OWNER_APPROVED_LOGO',
+    label: 'Swim Fit Academy official circular logo',
   },
 };
 
