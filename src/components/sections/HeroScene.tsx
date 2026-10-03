@@ -91,7 +91,7 @@ export async function HeroScene({ locale }: { readonly locale: Locale }) {
 
       {/* Main Campaign Hero Content */}
       <div className="relative mx-auto w-full max-w-[86rem] px-5 sm:px-8 lg:px-12">
-        <div className="max-w-[56rem]">
+        <div className="w-full min-w-0 max-w-[56rem]">
           {/* Campaign Eyebrow */}
           <MotionReveal as="p" className="flex items-center gap-3 text-[0.72rem] font-semibold uppercase tracking-[0.32em] text-accent">
             <span className="font-latin tracking-[0.28em]">{t('eyebrow')}</span>
@@ -103,10 +103,10 @@ export async function HeroScene({ locale }: { readonly locale: Locale }) {
           <h1
             id="hero-heading"
             className={[
-              'mt-5 text-[clamp(3.1rem,10.5vw,8.4rem)] text-ink',
+              'mt-5 w-full min-w-0 max-w-[calc(100vw-2.5rem)] text-ink sm:max-w-full',
               rtl
-                ? 'font-black leading-[1.04] tracking-tight'
-                : 'font-extrabold leading-[0.94] tracking-[-0.038em]',
+                ? 'text-[clamp(2.85rem,12.5vw,5rem)] font-black leading-[1.04] tracking-tight [text-wrap:wrap] sm:text-[clamp(3.6rem,9vw,7rem)]'
+                : 'text-[clamp(3.1rem,10.5vw,8.4rem)] font-extrabold leading-[0.94] tracking-[-0.038em]',
             ].join(' ')}
           >
             <MotionReveal as="span" className="block text-ink">{t('line1')}</MotionReveal>
