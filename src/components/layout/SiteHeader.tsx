@@ -54,7 +54,7 @@ export function SiteHeader() {
           aria-label="Swim Fit Academy"
           className="group flex shrink-0 items-center gap-3"
         >
-          <BrandLogo height={40} priority className="h-auto w-auto" />
+          <BrandLogo height={46} priority useBadge className="h-auto w-auto rounded-full" />
         </Link>
 
         <nav aria-label={t('primary')} className="mx-auto hidden lg:block">
