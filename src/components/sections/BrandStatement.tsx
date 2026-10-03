@@ -15,22 +15,31 @@ export async function BrandStatement() {
   const t = await getTranslations('brand');
 
   return (
-    <Section labelledBy="brand-heading" spacing="loose" className="overflow-hidden">
-      <WaterCaustics position="center" opacity={0.14} scale={1.1} />
-      <Stagger className="grid gap-10 lg:grid-cols-12 lg:gap-16">
+    <Section labelledBy="brand-heading" spacing="loose" className="relative overflow-hidden">
+      <WaterCaustics position="center" opacity={0.16} scale={1.1} />
+      
+      {/* Giant Ghost Campaign Typography */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -end-10 top-1/2 -translate-y-1/2 select-none font-latin text-[clamp(5rem,16vw,14rem)] font-black uppercase tracking-tight text-accent/5 hidden sm:block"
+      >
+        CONFIDENCE
+      </div>
+
+      <Stagger className="relative grid gap-10 lg:grid-cols-12 lg:gap-16">
         <MotionReveal className="lg:col-span-7">
           <Kicker>{t('kicker')}</Kicker>
           <h2
             id="brand-heading"
-            className="mt-6 text-balance text-[clamp(1.85rem,4.4vw,3.35rem)] font-semibold leading-[1.18] text-ink"
+            className="mt-6 text-balance text-[clamp(2.1rem,4.8vw,3.6rem)] font-bold leading-[1.14] text-ink"
           >
             {t('headline')}
           </h2>
         </MotionReveal>
 
-        <MotionReveal delayMs={120} className="flex flex-col gap-6 lg:col-span-5">
-          <p className="text-[1rem] leading-[1.8] text-ink-2">{t('body')}</p>
-          <p className="border-s border-line ps-4 text-[0.86rem] leading-relaxed text-ink-3">
+        <MotionReveal delayMs={120} className="flex flex-col gap-6 lg:col-span-5 justify-center">
+          <p className="text-[1.06rem] leading-[1.8] text-ink-2 sm:text-[1.15rem]">{t('body')}</p>
+          <p className="border-s-2 border-accent/60 ps-4 text-[0.88rem] leading-relaxed text-ink-3">
             {t('note')}
           </p>
         </MotionReveal>

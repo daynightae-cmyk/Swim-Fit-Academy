@@ -32,31 +32,27 @@ export async function HeroScene({ locale }: { readonly locale: Locale }) {
       aria-labelledby="hero-heading"
       data-dir={rtl ? 'rtl' : 'ltr'}
       data-hero-media={hero.id}
-      className="relative isolate flex flex-col justify-end overflow-hidden bg-page pb-12 pt-28 transition-colors duration-500 sm:min-h-[88svh] sm:pb-16 lg:min-h-[94svh]"
+      className="relative isolate flex flex-col justify-end overflow-hidden bg-page pb-10 pt-20 transition-colors duration-500 sm:min-h-[92svh] sm:pb-16 sm:pt-28 lg:min-h-[96svh]"
     >
-      {/* Authored environment behind the photograph */}
+      {/* Background aquatic atmosphere */}
       <div aria-hidden="true" className="absolute inset-0 -z-30">
-        <div className="absolute inset-0 bg-[radial-gradient(120%_90%_at_78%_8%,rgba(21,184,214,0.28),transparent_58%),linear-gradient(to_bottom,var(--color-ocean-900),var(--color-ocean-950))]" />
+        <div className="absolute inset-0 bg-[radial-gradient(130%_100%_at_82%_10%,rgba(21,184,214,0.32),transparent_62%),linear-gradient(to_bottom,var(--color-ocean-900),var(--color-ocean-950))]" />
       </div>
       <div className="absolute inset-0 -z-20">
-        <WaterCaustics position="top" opacity={0.3} />
+        <WaterCaustics position="top" opacity={0.35} />
       </div>
 
-      {/* The real photograph, mirrored with the writing direction so the copy
-          and the subject stay on opposite sides in both AR and EN. */}
+      {/* Large desktop photographic presence */}
       <div
         aria-hidden="true"
-        className="absolute inset-y-0 -z-20 end-0 hidden w-[60%] overflow-hidden md:block"
+        className="absolute inset-y-0 -z-20 end-0 hidden w-[68%] overflow-hidden md:block lg:w-[72%]"
         style={{
-          // Blend the photograph into the page so the panel reads as one surface.
           maskImage: rtl
-            ? 'linear-gradient(to right, transparent 0%, #000 22%)'
-            : 'linear-gradient(to left, transparent 0%, #000 22%)',
+            ? 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.4) 14%, #000 32%), radial-gradient(120% 90% at 75% 50%, #000 60%, transparent 100%)'
+            : 'linear-gradient(to left, transparent 0%, rgba(0,0,0,0.4) 14%, #000 32%), radial-gradient(120% 90% at 75% 50%, #000 60%, transparent 100%)',
           WebkitMaskImage: rtl
-            ? 'linear-gradient(to right, transparent 0%, #000 22%)'
-            : 'linear-gradient(to left, transparent 0%, #000 22%)',
-          // Mirror with the writing direction so the copy and the subject stay
-          // on opposite sides in both AR and EN.
+            ? 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.4) 14%, #000 32%), radial-gradient(120% 90% at 75% 50%, #000 60%, transparent 100%)'
+            : 'linear-gradient(to left, transparent 0%, rgba(0,0,0,0.4) 14%, #000 32%), radial-gradient(120% 90% at 75% 50%, #000 60%, transparent 100%)',
           transform: rtl ? 'scaleX(-1)' : undefined,
         }}
       >
@@ -65,8 +61,8 @@ export async function HeroScene({ locale }: { readonly locale: Locale }) {
           alt=""
           fill
           priority
-          sizes="(max-width: 768px) 0px, 58vw"
-          quality={86}
+          sizes="(max-width: 768px) 0px, 72vw"
+          quality={88}
           className="hero-photo object-cover"
           style={{
             objectPosition: hero.focalPoint,
@@ -76,7 +72,7 @@ export async function HeroScene({ locale }: { readonly locale: Locale }) {
         />
       </div>
 
-      {/* Direction-aware wash: darkens the copy side, keeps the subject legible. */}
+      {/* Direction-aware directional scrim to keep typography pristine */}
       <div
         aria-hidden="true"
         className="absolute inset-0 -z-10"
@@ -84,95 +80,91 @@ export async function HeroScene({ locale }: { readonly locale: Locale }) {
       />
       <div
         aria-hidden="true"
-        className="absolute inset-x-0 bottom-0 -z-10 h-40"
-        style={{ background: 'linear-gradient(to bottom, transparent, var(--color-page) 94%)' }}
+        className="absolute inset-x-0 bottom-0 -z-10 h-44"
+        style={{ background: 'linear-gradient(to bottom, transparent, var(--color-page) 96%)' }}
       />
       <div
         aria-hidden="true"
-        className="absolute inset-x-0 bottom-0 -z-10 h-px"
-        style={{ background: 'linear-gradient(to right, transparent, var(--color-accent), transparent)', opacity: 0.5 }}
+        className="waterline absolute inset-x-0 bottom-0 -z-10"
       />
       <BubbleField count={6} className="-z-10" compact />
 
+      {/* Main Campaign Hero Content */}
       <div className="relative mx-auto w-full max-w-[86rem] px-5 sm:px-8 lg:px-12">
-        <div className="max-w-[54rem]">
-          <MotionReveal as="p" className="flex items-center gap-3 text-[0.7rem] font-semibold uppercase tracking-[0.3em] text-accent">
-            <span className="font-latin">{t('eyebrow')}</span>
-            <span aria-hidden="true" className="h-px w-10 bg-accent opacity-60" />
-            <span>{t('city')}</span>
+        <div className="max-w-[56rem]">
+          {/* Campaign Eyebrow */}
+          <MotionReveal as="p" className="flex items-center gap-3 text-[0.72rem] font-semibold uppercase tracking-[0.32em] text-accent">
+            <span className="font-latin tracking-[0.28em]">{t('eyebrow')}</span>
+            <span aria-hidden="true" className="h-px w-12 bg-gradient-to-r from-accent to-transparent opacity-75" />
+            <span className="font-bold text-ink">{t('city')}</span>
           </MotionReveal>
 
+          {/* Hero Headline — Campaign Scale */}
           <h1
             id="hero-heading"
             className={[
-              'mt-6 text-[clamp(2.85rem,10.2vw,7.2rem)] text-ink',
-              rtl ? 'font-bold leading-[1.12] tracking-normal' : 'font-semibold leading-[0.96] tracking-[-0.03em]',
+              'mt-5 text-[clamp(3.1rem,10.5vw,8.4rem)] text-ink',
+              rtl
+                ? 'font-black leading-[1.04] tracking-tight'
+                : 'font-extrabold leading-[0.94] tracking-[-0.038em]',
             ].join(' ')}
           >
-            <MotionReveal as="span" className="block">{t('line1')}</MotionReveal>
-            <MotionReveal as="span" className="block text-accent" delayMs={90}>{t('line2')}</MotionReveal>
-            <MotionReveal as="span" className="block" delayMs={180}>{t('line3')}</MotionReveal>
+            <MotionReveal as="span" className="block text-ink">{t('line1')}</MotionReveal>
+            <MotionReveal as="span" className="block text-accent font-black drop-shadow-sm" delayMs={90}>{t('line2')}</MotionReveal>
+            <MotionReveal as="span" className="block text-ink" delayMs={180}>{t('line3')}</MotionReveal>
           </h1>
+
+          {/* Mobile Swimmer Visual: integrated high in first viewport (390x844) */}
+          <div className="relative my-5 overflow-hidden rounded-[1.25rem] border border-line shadow-card md:hidden">
+            <div className="relative aspect-[16/9] w-full">
+              <Image
+                src={hero.src}
+                alt={hero.altAr}
+                fill
+                priority
+                sizes="(max-width: 768px) 100vw"
+                quality={84}
+                className="object-cover"
+                style={{ objectPosition: hero.focalPoint, filter: hero.grade }}
+              />
+              <div
+                aria-hidden="true"
+                className="absolute inset-0 bg-gradient-to-t from-[var(--surface-page)] via-transparent to-transparent opacity-80"
+              />
+              <div
+                aria-hidden="true"
+                className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-accent to-transparent opacity-60"
+              />
+            </div>
+          </div>
 
           <MotionReveal
             as="p"
-            delayMs={240}
-            className="mt-7 max-w-[38rem] text-[1.02rem] leading-relaxed text-ink-2 sm:text-[1.12rem]"
+            delayMs={220}
+            className="mt-5 max-w-[42rem] text-[1.06rem] leading-[1.75] text-ink-2 sm:mt-7 sm:text-[1.2rem]"
           >
             {t('support')}
           </MotionReveal>
 
-          <MotionReveal as="div" delayMs={300} className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4">
-            <WhatsAppButton label={t('ctaPrimary')} size="lg" surface="hero" intent={t('ctaPrimary')} className="w-full sm:w-auto" />
-            <Link href={localizedPath(locale, 'programs')} className="btn btn-ghost text-[0.97rem] px-6 py-3.5 sm:px-7 sm:py-4">
+          <MotionReveal as="div" delayMs={280} className="mt-7 flex flex-col gap-3 sm:mt-9 sm:flex-row sm:items-center sm:gap-4">
+            <WhatsAppButton label={t('ctaPrimary')} size="lg" surface="hero" intent={t('ctaPrimary')} className="w-full sm:w-auto shadow-[0_12px_32px_-14px_rgba(21,184,214,0.85)]" />
+            <Link href={localizedPath(locale, 'programs')} className="btn btn-ghost text-[0.98rem] px-6 py-3.5 sm:px-7 sm:py-4">
               {t('ctaSecondary')}
             </Link>
           </MotionReveal>
 
-          <MotionReveal as="ul" delayMs={360} className="mt-9 flex flex-wrap items-center gap-x-3 gap-y-2" aria-label={t('chips.city')}>
+          <MotionReveal as="ul" delayMs={340} className="mt-7 flex flex-wrap items-center gap-x-2.5 gap-y-2 sm:mt-9" aria-label={t('chips.city')}>
             {chips.map((chip) => (
               <li
                 key={chip}
-                className="inline-flex items-center gap-2 rounded-full border border-line bg-inset px-3 py-1.5 text-[0.74rem] font-medium text-ink backdrop-blur-sm"
+                className="inline-flex items-center gap-2 rounded-full border border-line bg-inset/80 px-3.5 py-1.5 text-[0.74rem] font-medium text-ink backdrop-blur-md transition-colors hover:border-line-strong"
               >
-                <span aria-hidden="true" className="h-1 w-1 rounded-full bg-accent" />
+                <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-accent shadow-[0_0_8px_var(--accent)]" />
                 {chip}
               </li>
             ))}
           </MotionReveal>
         </div>
-      </div>
-
-      {/*
-        Mobile carries the photograph as a bounded editorial panel above the copy
-        rather than as a full-bleed background: a 640x800 source stretched across
-        a 390px viewport would crop the subject out of the frame entirely.
-      */}
-      <div className="relative mx-auto w-full max-w-[86rem] px-5 pt-6 md:hidden">
-        <MotionReveal
-          as="figure"
-          delayMs={120}
-          className="relative aspect-[16/10] w-full overflow-hidden rounded-[1.5rem] border border-line shadow-card"
-        >
-          <Image
-            src={hero.src}
-            alt={hero.altAr}
-            fill
-            priority
-            sizes="(max-width: 768px) 100vw"
-            quality={84}
-            className="object-cover"
-            style={{ objectPosition: hero.focalPoint, filter: hero.grade }}
-          />
-          <div
-            aria-hidden="true"
-            className="absolute inset-0"
-            style={{
-              background:
-                'linear-gradient(to top, var(--color-page) 0%, transparent 45%), linear-gradient(to bottom, rgba(3,19,31,0.2) 0%, transparent 35%)',
-            }}
-          />
-        </MotionReveal>
       </div>
     </section>
   );

@@ -30,7 +30,7 @@ export interface WidePosterProps {
   readonly program?: ProgramContext;
 }
 
-const ASPECT_CLASS = 'aspect-[4/5] sm:aspect-[16/11] lg:aspect-[21/9]';
+const ASPECT_CLASS = 'aspect-[4/5] sm:aspect-[16/10] lg:aspect-[2.2/1] min-h-[450px] sm:min-h-[500px] lg:min-h-[540px]';
 
 /**
  * Wide cinematic poster.
@@ -89,44 +89,44 @@ export function WidePoster({
   const layout = {
     immersive: {
       copy: 'justify-end items-start',
-      width: 'max-w-[34rem]',
+      width: 'max-w-[36rem]',
       panel: true,
-      scrim: `linear-gradient(100deg, ${copySide}, var(--poster-scrim) 0%, color-mix(in oklab, var(--poster-scrim) 62%, transparent) 30%, transparent 58%)`,
+      scrim: `linear-gradient(110deg, ${copySide}, var(--poster-scrim) 0%, color-mix(in oklab, var(--poster-scrim) 65%, transparent) 34%, transparent 64%)`,
       photo: 'inset-0',
     },
     split: {
       copy: 'justify-center items-start',
-      width: 'max-w-[26rem]',
+      width: 'max-w-[28rem]',
       panel: true,
-      scrim: `linear-gradient(90deg, ${copySide}, var(--poster-scrim) 0%, color-mix(in oklab, var(--poster-scrim) 55%, transparent) 26%, transparent 44%), linear-gradient(${copySide}, var(--poster-scrim-soft) 0%, transparent 52%)`,
-      photo: 'inset-y-0 end-0 w-[58%] sm:w-[52%]',
+      scrim: `linear-gradient(90deg, ${copySide}, var(--poster-scrim) 0%, color-mix(in oklab, var(--poster-scrim) 60%, transparent) 28%, transparent 48%), linear-gradient(${copySide}, var(--poster-scrim-soft) 0%, transparent 54%)`,
+      photo: 'inset-y-0 end-0 w-[60%] sm:w-[54%]',
     },
     band: {
       copy: 'justify-center items-center text-center mx-auto',
-      width: 'max-w-[40rem]',
+      width: 'max-w-[44rem]',
       panel: false,
-      scrim: `linear-gradient(${copySide}, var(--poster-scrim) 0%, color-mix(in oklab, var(--poster-scrim) 72%, transparent) 34%, color-mix(in oklab, var(--poster-scrim) 72%, transparent) 66%, var(--poster-scrim) 100%)`,
+      scrim: `linear-gradient(${copySide}, var(--poster-scrim) 0%, color-mix(in oklab, var(--poster-scrim) 78%, transparent) 25%, color-mix(in oklab, var(--poster-scrim) 78%, transparent) 75%, var(--poster-scrim) 100%), linear-gradient(to bottom, var(--poster-scrim-soft) 0%, transparent 40%, var(--poster-scrim) 100%)`,
       photo: 'inset-0',
     },
     bleed: {
-      copy: 'justify-end items-start',
-      width: 'max-w-[30rem]',
+      copy: 'justify-end items-start pb-8 sm:pb-12',
+      width: 'max-w-[34rem]',
       panel: true,
-      scrim: `linear-gradient(74deg, ${copySide}, var(--poster-scrim) 0%, color-mix(in oklab, var(--poster-scrim) 48%, transparent) 24%, transparent 46%), linear-gradient(to top, var(--poster-scrim) 0%, transparent 44%)`,
+      scrim: `linear-gradient(78deg, ${copySide}, var(--poster-scrim) 0%, color-mix(in oklab, var(--poster-scrim) 52%, transparent) 26%, transparent 50%), linear-gradient(to top, var(--poster-scrim) 0%, transparent 50%)`,
       photo: 'inset-0',
     },
     horizon: {
-      copy: 'justify-start items-start pt-10',
-      width: 'max-w-[32rem]',
+      copy: 'justify-start items-start pt-8 sm:pt-12',
+      width: 'max-w-[34rem]',
       panel: true,
-      scrim: `linear-gradient(to bottom, var(--poster-scrim) 0%, color-mix(in oklab, var(--poster-scrim) 60%, transparent) 26%, transparent 52%), linear-gradient(${copySide}, var(--poster-scrim-soft) 0%, transparent 44%)`,
+      scrim: `linear-gradient(to bottom, var(--poster-scrim) 0%, color-mix(in oklab, var(--poster-scrim) 68%, transparent) 30%, transparent 58%), linear-gradient(${copySide}, var(--poster-scrim-soft) 0%, transparent 46%)`,
       photo: 'inset-0',
     },
     close: {
-      copy: 'justify-end items-start',
-      width: 'max-w-[28rem]',
+      copy: 'justify-end items-start pb-8 sm:pb-12',
+      width: 'max-w-[30rem]',
       panel: true,
-      scrim: `linear-gradient(115deg, ${copySide}, var(--poster-scrim) 0%, color-mix(in oklab, var(--poster-scrim) 66%, transparent) 32%, transparent 56%)`,
+      scrim: `linear-gradient(120deg, ${copySide}, var(--poster-scrim) 0%, color-mix(in oklab, var(--poster-scrim) 70%, transparent) 35%, transparent 60%)`,
       photo: 'inset-0',
     },
   }[variant];
@@ -214,12 +214,12 @@ export function WidePoster({
 
           <h2
             id={`poster-${id}-heading`}
-            className={`text-balance text-[clamp(1.5rem,4.4vw,3.3rem)] font-semibold text-[var(--poster-copy-ink)] ${rtl ? 'leading-[1.22] tracking-normal' : 'leading-[1.14] tracking-[-0.02em]'}`}
+            className={`text-balance text-[clamp(1.75rem,4.8vw,3.6rem)] font-bold text-[var(--poster-copy-ink)] ${rtl ? 'leading-[1.18] tracking-normal' : 'leading-[1.1] tracking-[-0.025em]'}`}
           >
             {t(headlineKey)}
           </h2>
 
-          <p className="max-w-[46ch] text-[0.95rem] leading-[1.75] text-[var(--poster-copy-ink-2)] sm:text-base">
+          <p className="max-w-[48ch] text-[1rem] leading-[1.75] text-[var(--poster-copy-ink-2)] sm:text-[1.08rem]">
             {t(sublineKey)}
           </p>
 

@@ -27,37 +27,46 @@ export function AbuDhabiLocationPanel({
 
   return (
     <div data-testid="abu-dhabi-location-panel" className="flex flex-col gap-6">
-      <div className="overflow-hidden rounded-[1.5rem] border border-line shadow-card">
-        <div className="relative aspect-[16/11] w-full sm:aspect-[16/8]">
+      <div className="overflow-hidden rounded-[1.75rem] border border-line shadow-card relative">
+        <div className="relative aspect-[16/11] w-full sm:aspect-[16/9]">
           <Image
             src={visual.src}
             alt=""
             fill
-            sizes="(max-width: 768px) 100vw, 50vw"
-            quality={82}
+            sizes="(max-width: 768px) 100vw, 55vw"
+            quality={88}
             className="object-cover"
             style={{
               objectPosition: visual.focalPoint,
               filter: visual.grade,
             }}
           />
-          <WaterCaustics position="top" opacity={0.16} />
+          <WaterCaustics position="top" opacity={0.2} />
+          
+          {/* Giant Campaign Location Signature Watermark */}
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-x-0 top-6 select-none px-6 text-center font-latin text-[clamp(2.4rem,6.8vw,5.5rem)] font-black uppercase tracking-[0.14em] text-accent/15 sm:top-8 sm:px-8"
+          >
+            ABU DHABI · أبوظبي
+          </div>
+
           <div
             aria-hidden="true"
             className="absolute inset-0"
             style={{
               background:
-                'linear-gradient(to top, var(--surface-page) 0%, color-mix(in oklab, var(--surface-page) 75%, transparent) 46%, transparent 100%)',
+                'linear-gradient(to top, var(--surface-page) 0%, color-mix(in oklab, var(--surface-page) 80%, transparent) 50%, transparent 100%)',
             }}
           />
-          <div className="absolute inset-x-0 bottom-0 p-6 sm:p-8">
-            <p className="text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-accent">
+          <div className="absolute inset-x-0 bottom-0 p-6 sm:p-9">
+            <p className="text-[0.72rem] font-bold uppercase tracking-[0.28em] text-accent">
               {t('locations.kicker')}
             </p>
-            <h3 className="mt-3 text-[clamp(1.4rem,3.4vw,2.1rem)] font-semibold leading-[1.15] text-ink">
+            <h3 className="mt-3 text-[clamp(1.6rem,3.8vw,2.4rem)] font-bold leading-[1.12] text-ink">
               {t('locations.cardTitle')}
             </h3>
-            <p className="mt-2 max-w-[46ch] text-[0.92rem] leading-relaxed text-ink-2">
+            <p className="mt-2.5 max-w-[48ch] text-[0.98rem] leading-relaxed text-ink-2 sm:text-[1.04rem]">
               {t('locations.cardBody')}
             </p>
           </div>

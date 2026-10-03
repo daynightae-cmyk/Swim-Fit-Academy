@@ -60,14 +60,17 @@ export function ProgramCard({ program, tone = 'deep', onOpenAssistant }: Program
     }
   }, [locale, program.id, onOpenAssistant]);
 
+  const isHeroProgram = program.id === 'start';
+
   return (
     <article
       data-program={program.id}
       className={[
-        'refract group relative flex h-full flex-col rounded-[1.375rem] border p-6 sm:rounded-[1.5rem] sm:p-7',
+        'refract group relative flex h-full flex-col rounded-[1.5rem] border p-6 sm:p-7 backdrop-blur-md transition-all duration-400',
+        isHeroProgram ? 'border-accent/40 shadow-[0_20px_50px_-24px_rgba(21,184,214,0.35)]' : 'border-line',
         light
-          ? 'border-line bg-raised text-alt-ink'
-          : 'border-line bg-inset text-ink',
+          ? 'bg-raised/90 text-alt-ink hover:border-line-strong'
+          : 'bg-inset/85 text-ink hover:border-line-strong',
       ].join(' ')}
       style={{ ['--card-depth' as string]: `${program.depthPercent}%` }}
     >
@@ -76,7 +79,7 @@ export function ProgramCard({ program, tone = 'deep', onOpenAssistant }: Program
         aria-hidden="true"
         className={[
           'pointer-events-none absolute inset-x-0 bottom-0 h-[2px] origin-left scale-x-0 transition-transform duration-700 ease-[var(--ease-water)] group-hover:scale-x-100 group-focus-within:scale-x-100',
-          light ? 'bg-ocean-500/60' : 'bg-gradient-to-r from-transparent via-pool-400 to-transparent',
+          light ? 'bg-ocean-500/70' : 'bg-gradient-to-r from-transparent via-accent to-transparent',
         ].join(' ')}
       />
 
@@ -84,27 +87,21 @@ export function ProgramCard({ program, tone = 'deep', onOpenAssistant }: Program
         <div className="flex items-center gap-3">
           <span
             className={[
-              'inline-flex h-11 w-11 items-center justify-center rounded-xl border',
-              light ? 'border-line bg-sunken text-ocean-700' : 'border-line bg-sunken text-accent',
+              'inline-flex h-12 w-12 items-center justify-center rounded-2xl border shadow-sm transition-transform duration-300 group-hover:scale-105',
+              isHeroProgram ? 'border-accent/40 bg-sunken text-accent' : light ? 'border-line bg-sunken text-ocean-700' : 'border-line bg-sunken text-accent',
             ].join(' ')}
           >
-            <SkillIcon name={program.icon} size={21} />
+            <SkillIcon name={program.icon} size={22} />
           </span>
           <span
             aria-hidden="true"
-            className={[
-              'font-latin text-[0.72rem] font-semibold tracking-[0.24em]',
-              light ? 'text-ocean-500/60' : 'text-accent',
-            ].join(' ')}
+            className="font-latin text-[0.84rem] font-black tracking-[0.24em] text-accent"
           >
             {program.marker}
           </span>
         </div>
         <span
-          className={[
-            'font-latin text-[0.66rem] font-medium uppercase tracking-[0.18em]',
-            light ? 'text-slate-500' : 'text-slate-500',
-          ].join(' ')}
+          className="font-latin text-[0.66rem] font-semibold uppercase tracking-[0.2em] text-ink-4"
         >
           {t('programsSection.progressLabel')}
         </span>
@@ -112,7 +109,7 @@ export function ProgramCard({ program, tone = 'deep', onOpenAssistant }: Program
 
       <h3
         className={[
-          'mt-6 text-balance text-[1.42rem] font-semibold leading-[1.2]',
+          'mt-6 text-balance text-[1.48rem] font-bold leading-[1.18] transition-colors group-hover:text-accent',
           light ? 'text-alt-ink' : 'text-ink',
         ].join(' ')}
       >
@@ -121,7 +118,7 @@ export function ProgramCard({ program, tone = 'deep', onOpenAssistant }: Program
 
       <p
         className={[
-          'mt-3 text-[0.95rem] leading-[1.75]',
+          'mt-3 text-[0.98rem] leading-[1.75]',
           light ? 'text-alt-ink-2' : 'text-ink-2',
         ].join(' ')}
       >
@@ -130,7 +127,7 @@ export function ProgramCard({ program, tone = 'deep', onOpenAssistant }: Program
 
       <p
         className={[
-          'mt-3 text-[0.86rem] leading-relaxed',
+          'mt-3 text-[0.88rem] leading-relaxed',
           light ? 'text-alt-ink-2' : 'text-ink-3',
         ].join(' ')}
       >

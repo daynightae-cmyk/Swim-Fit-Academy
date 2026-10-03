@@ -44,26 +44,37 @@ export function PageHero({
         }}
       />
 
-      <div className="mx-auto w-full max-w-[86rem] px-5 sm:px-8 lg:px-12">
-        <div className="max-w-[46rem]">
-          <MotionReveal as="p" className="flex items-center gap-3 text-[0.7rem] font-semibold uppercase tracking-[0.28em] text-accent">
-            {marker ? <span className="font-latin">{marker}</span> : null}
-            {marker ? <span aria-hidden="true" className="h-px w-8 bg-accent/45" /> : null}
+      <div aria-hidden="true" className="waterline absolute inset-x-0 bottom-0" />
+
+      <div className="relative mx-auto w-full max-w-[86rem] px-5 sm:px-8 lg:px-12">
+        {marker ? (
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute end-8 top-1/2 -translate-y-1/2 select-none font-latin text-[clamp(6rem,18vw,16rem)] font-black text-accent/5 hidden md:block"
+          >
+            {marker}
+          </div>
+        ) : null}
+
+        <div className="max-w-[48rem]">
+          <MotionReveal as="p" className="flex items-center gap-3 text-[0.72rem] font-bold uppercase tracking-[0.3em] text-accent">
+            {marker ? <span className="font-latin tracking-[0.24em]">{marker}</span> : null}
+            {marker ? <span aria-hidden="true" className="h-px w-10 bg-accent/50" /> : null}
             <span>{kicker}</span>
           </MotionReveal>
 
-          <MotionReveal as="h1" delayMs={80} id="page-heading" className="mt-6 text-[clamp(2.1rem,6.4vw,4.1rem)] font-semibold leading-[1.06] tracking-[-0.025em] text-ink">
+          <MotionReveal as="h1" delayMs={80} id="page-heading" className="mt-5 text-[clamp(2.4rem,7.4vw,4.8rem)] font-bold leading-[1.04] tracking-tight text-ink sm:mt-6">
             {title}
           </MotionReveal>
 
           {body ? (
-            <MotionReveal as="p" delayMs={150} className="mt-6 max-w-[46ch] text-[1.02rem] leading-[1.75] text-ink-2">
+            <MotionReveal as="p" delayMs={150} className="mt-5 max-w-[46ch] text-[1.08rem] leading-[1.78] text-ink-2 sm:mt-6 sm:text-[1.18rem]">
               {body}
             </MotionReveal>
           ) : null}
 
           {supportLine ? (
-            <p className="mt-6 text-[0.86rem] text-ink-3">{supportLine}</p>
+            <p className="mt-5 text-[0.9rem] leading-relaxed text-ink-3">{supportLine}</p>
           ) : null}
 
           {children ? <div className="mt-8">{children}</div> : null}
