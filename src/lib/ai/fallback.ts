@@ -14,6 +14,7 @@ import arMessages from '@/i18n/messages/ar.json';
 import enMessages from '@/i18n/messages/en.json';
 
 import type { ConciergeMode, HandoffPayload } from './schemas';
+import { bestKnowledgeAnswer } from './academy-knowledge';
 import { buildWhatsAppUrl } from '../whatsapp';
 
 export type ConciergeIntent =
@@ -321,9 +322,9 @@ export function localConciergeAnswer(
   const catalog = catalogFor(locale);
   const intent = detectIntent(rawMessage);
   const answers = catalog.concierge.answers as Record<string, string | undefined>;
-
-  const text = answers[intent] ?? answers.unclear ?? '';
   const handoff = requiresHandoff(intent);
+  const knowledgeAnswer = handoff ? null : bestKnowledgeAnswer(rawMessage, locale);
+  const text = knowledgeAnswer ?? answers[intent] ?? answers.unclear ?? '';
 
   const chips = handoff
     ? catalog.concierge.chipsAfterHandoff

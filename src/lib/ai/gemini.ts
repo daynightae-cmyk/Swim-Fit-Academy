@@ -84,7 +84,7 @@ export async function runGeminiConcierge(
     model: geminiModel(),
     contents,
     config: {
-      systemInstruction: buildSystemInstruction(locale),
+      systemInstruction: buildSystemInstruction(locale, message),
       maxOutputTokens: 400,
     },
   });

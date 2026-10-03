@@ -1,4 +1,5 @@
 import { OWNER_REQUIRED_TOPICS, knownFacts } from './knowledge';
+import { KNOWLEDGE_ARTICLE_COUNT, knowledgeContext } from './academy-knowledge';
 
 /**
  * Behavioural core for the live model.
@@ -6,12 +7,13 @@ import { OWNER_REQUIRED_TOPICS, knownFacts } from './knowledge';
  * The knowledge block is generated from `src/content/business.ts`, so a fact can
  * only be advertised here if it already cleared the verification policy.
  */
-export function buildSystemInstruction(locale: 'ar' | 'en'): string {
+export function buildSystemInstruction(locale: 'ar' | 'en', message = ''): string {
   const facts = knownFacts()
     .map((fact) => `- ${fact.key}: ${fact.value}`)
     .join('\n');
 
   const blocked = OWNER_REQUIRED_TOPICS.join(', ');
+  const retrieved = knowledgeContext(message, locale, 7);
 
   const arabicRule =
     locale === 'ar'
@@ -28,6 +30,11 @@ ${facts}
 
 OWNER-CONFIRMED FACTS ARE UNAVAILABLE (never state or estimate them):
 ${blocked}
+
+RETRIEVED KNOWLEDGE FROM ${KNOWLEDGE_ARTICLE_COUNT} CURATED BILINGUAL ARTICLES:
+${retrieved}
+
+Knowledge may include general swimming education. Never turn general guidance into an academy-specific promise.
 
 RULES:
 - Never fabricate reviews, rankings, awards, student counts, years in business,
