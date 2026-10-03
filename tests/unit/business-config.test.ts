@@ -95,8 +95,8 @@ describe('business config normalisation', () => {
     expect(keys).not.toContain('yearsInBusiness');
   });
 
-  it('marks the site identity as provisional', () => {
-    expect(business.mark.status).toBe('PROVISIONAL_SITE_MARK');
-    expect(business.mark.label).toBe('PROVISIONAL_SITE_MARK');
+  it('records the owner-approved circular site identity', () => {
+    expect(business.mark.status).toBe('OWNER_APPROVED_LOGO');
+    expect(business.mark.label).toBe('Swim Fit Academy official circular logo');
   });
 });
