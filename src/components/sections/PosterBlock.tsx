@@ -22,8 +22,8 @@ export function PosterBlock({ id, priority = false, program, tone = 'default' }:
     <div
       className={
         tone === 'tight'
-          ? 'mx-auto w-full max-w-[86rem] px-5 py-10 sm:px-8 lg:px-12 lg:py-14'
-          : 'mx-auto w-full max-w-[86rem] px-5 py-10 sm:px-8 sm:py-14 lg:px-12 lg:py-16'
+          ? 'mx-auto w-full max-w-[86rem] px-5 py-6 sm:px-8 lg:px-12 lg:py-10'
+          : 'mx-auto w-full max-w-[86rem] px-5 py-8 sm:px-8 sm:py-10 lg:px-12 lg:py-12'
       }
     >
       <WidePoster

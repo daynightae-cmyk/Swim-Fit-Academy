@@ -104,7 +104,10 @@ export async function HeroScene({ locale }: { readonly locale: Locale }) {
 
           <h1
             id="hero-heading"
-            className="mt-6 text-[clamp(2.9rem,10.5vw,7.2rem)] font-semibold leading-[0.95] tracking-[-0.03em] text-ink"
+            className={[
+              'mt-6 text-[clamp(2.85rem,10.2vw,7.2rem)] text-ink',
+              rtl ? 'font-bold leading-[1.12] tracking-normal' : 'font-semibold leading-[0.96] tracking-[-0.03em]',
+            ].join(' ')}
           >
             <MotionReveal as="span" className="block">{t('line1')}</MotionReveal>
             <MotionReveal as="span" className="block text-accent" delayMs={90}>{t('line2')}</MotionReveal>
@@ -145,11 +148,11 @@ export async function HeroScene({ locale }: { readonly locale: Locale }) {
         rather than as a full-bleed background: a 640x800 source stretched across
         a 390px viewport would crop the subject out of the frame entirely.
       */}
-      <div className="relative mx-auto w-full max-w-[86rem] px-5 pt-5 md:hidden">
+      <div className="relative mx-auto w-full max-w-[86rem] px-5 pt-6 md:hidden">
         <MotionReveal
           as="figure"
           delayMs={120}
-          className="relative aspect-[16/11] w-full overflow-hidden rounded-[1.5rem] border border-line"
+          className="relative aspect-[16/10] w-full overflow-hidden rounded-[1.5rem] border border-line shadow-card"
         >
           <Image
             src={hero.src}
@@ -161,7 +164,14 @@ export async function HeroScene({ locale }: { readonly locale: Locale }) {
             className="object-cover"
             style={{ objectPosition: hero.focalPoint, filter: hero.grade }}
           />
-          <div aria-hidden="true" className="absolute inset-0" style={{ background: 'linear-gradient(to top, var(--color-page), transparent 46%)' }} />
+          <div
+            aria-hidden="true"
+            className="absolute inset-0"
+            style={{
+              background:
+                'linear-gradient(to top, var(--color-page) 0%, transparent 45%), linear-gradient(to bottom, rgba(3,19,31,0.2) 0%, transparent 35%)',
+            }}
+          />
         </MotionReveal>
       </div>
     </section>

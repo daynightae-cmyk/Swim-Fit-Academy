@@ -18,26 +18,26 @@ export function ProgressStory({ story = progressStory }: { readonly story?: type
   return (
     <article
       data-testid="progress-story"
-      className="refract relative flex h-full flex-col overflow-hidden rounded-[1.5rem] border border-pool-300/14 bg-ocean-900/45 p-6 sm:p-8"
+      className="refract relative flex h-full flex-col overflow-hidden rounded-[1.5rem] border border-line bg-raised/75 p-6 shadow-card backdrop-blur-sm sm:p-8"
     >
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-x-0 top-0 h-40 opacity-60"
         style={{
           background:
-            'radial-gradient(80% 100% at 22% 0%, rgba(120,220,239,0.18), transparent 68%)',
+            'radial-gradient(80% 100% at 22% 0%, var(--accent-soft), transparent 68%)',
         }}
       />
 
       <div className="relative">
-        <p className="text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-pool-300">
+        <p className="text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-accent">
           {t('results.storyKicker')}
         </p>
-        <h3 className="mt-4 text-balance text-[1.35rem] font-semibold leading-[1.28] text-ice-50">
+        <h3 className="mt-4 text-balance text-[1.35rem] font-semibold leading-[1.28] text-ink">
           {t('results.storyTitle')}
         </h3>
-        <p className="mt-3 text-[0.8rem] font-medium text-slate-500">{t('results.storySubject')}</p>
-        <p className="mt-4 max-w-[58ch] text-[0.93rem] leading-[1.78] text-slate-300">
+        <p className="mt-3 text-[0.8rem] font-medium text-ink-3">{t('results.storySubject')}</p>
+        <p className="mt-4 max-w-[58ch] text-[0.93rem] leading-[1.78] text-ink-2">
           {t('results.storyBody')}
         </p>
       </div>
@@ -48,13 +48,13 @@ export function ProgressStory({ story = progressStory }: { readonly story?: type
           <li key={milestone.id} className="flex items-center gap-3.5">
             <span
               aria-hidden="true"
-              className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-pool-300/20 bg-ocean-950/60 font-latin text-[0.68rem] font-semibold text-pool-300"
+              className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-line bg-sunken font-latin text-[0.68rem] font-semibold text-accent"
             >
               {milestone.marker}
             </span>
-            <span className="text-[0.92rem] text-ice-100">{t(`results.milestones.${milestone.id}`)}</span>
+            <span className="text-[0.92rem] text-ink">{t(`results.milestones.${milestone.id}`)}</span>
             {index < story.skillMilestones.length - 1 ? (
-              <span aria-hidden="true" className="h-px flex-1 bg-pool-300/15" />
+              <span aria-hidden="true" className="h-px flex-1 bg-line" />
             ) : null}
           </li>
         ))}
@@ -84,22 +84,22 @@ export function VerifiedReviewSlot({ reviews = renderableReviews() }: VerifiedRe
     <section
       data-testid="verified-reviews"
       aria-labelledby="reviews-heading"
-      className="rounded-[1.5rem] border border-dashed border-pool-300/20 bg-ocean-900/30 p-7 sm:p-9"
+      className="rounded-[1.5rem] border border-dashed border-line bg-raised/50 p-7 sm:p-9"
     >
       <div className="flex items-start gap-4">
-        <span className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-pool-300/16 bg-ocean-950/50 text-pool-300">
+        <span className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-line bg-sunken text-accent">
           <SkillIcon name="flow" size={20} />
         </span>
         <div>
-          <h3 id="reviews-heading" className="text-[1.1rem] font-semibold text-ice-50">
+          <h3 id="reviews-heading" className="text-[1.1rem] font-semibold text-ink">
             {t('results.reviewsTitle')}
           </h3>
           {reviews.length === 0 ? (
             <>
-              <p className="mt-2.5 text-[0.95rem] leading-relaxed text-slate-300">
+              <p className="mt-2.5 text-[0.95rem] leading-relaxed text-ink-2">
                 {t('results.reviewsEmpty')}
               </p>
-              <p className="mt-2 text-[0.84rem] leading-relaxed text-slate-500">
+              <p className="mt-2 text-[0.84rem] leading-relaxed text-ink-4">
                 {t('results.reviewsNote')}
               </p>
             </>
@@ -120,11 +120,11 @@ export function VerifiedReviewSlot({ reviews = renderableReviews() }: VerifiedRe
 export function ReviewCard({ review }: { readonly review: VerifiedReview }) {
   const locale = useLocale();
   return (
-    <li className="rounded-2xl border border-pool-300/12 bg-ocean-900/50 p-5">
-      <p className="text-[0.92rem] leading-relaxed text-ice-100">
+    <li className="rounded-2xl border border-line bg-raised/80 p-5">
+      <p className="text-[0.92rem] leading-relaxed text-ink">
         {review.body.value?.[locale === 'ar' ? 'ar' : 'en'] ?? ''}
       </p>
-      <p className="mt-3 text-[0.78rem] text-slate-500">
+      <p className="mt-3 text-[0.78rem] text-ink-4">
         {review.reviewerDisplayName.value ?? ''}
         {review.date.value ? ` · ${review.date.value}` : ''}
       </p>
@@ -152,12 +152,12 @@ export function SkillTimeline({ markers }: SkillTimelineProps) {
         >
           <span
             aria-hidden="true"
-            className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-pool-300/18 bg-ocean-950/50 font-latin text-[0.7rem] font-semibold text-pool-300"
+            className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-line bg-sunken font-latin text-[0.7rem] font-semibold text-accent"
           >
             {marker.marker}
           </span>
-          <span className="text-[0.94rem] text-ice-100">{t(`results.milestones.${marker.id}`)}</span>
-          <span aria-hidden="true" className="h-px flex-1 bg-gradient-to-r from-pool-300/20 to-transparent" />
+          <span className="text-[0.94rem] text-ink">{t(`results.milestones.${marker.id}`)}</span>
+          <span aria-hidden="true" className="h-px flex-1 bg-gradient-to-r from-line to-transparent" />
         </motion.li>
       ))}
     </ol>
@@ -177,17 +177,17 @@ export function BeforeAfterSkillState({ beforeKey, afterKey }: BeforeAfterSkillS
   const t = useTranslations();
   return (
     <div data-testid="before-after-skill" className="grid gap-4 sm:grid-cols-2">
-      <div className="rounded-2xl border border-pool-300/12 bg-ocean-900/40 p-5">
-        <p className="text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-slate-500">
+      <div className="rounded-2xl border border-line bg-raised/70 p-5">
+        <p className="text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-ink-4">
           {t('results.timelineTitle')}
         </p>
-        <p className="mt-2.5 text-[0.92rem] leading-relaxed text-slate-300">{t(beforeKey)}</p>
+        <p className="mt-2.5 text-[0.92rem] leading-relaxed text-ink-2">{t(beforeKey)}</p>
       </div>
-      <div className="rounded-2xl border border-pool-300/20 bg-pool-400/[0.06] p-5">
-        <p className="text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-pool-300">
+      <div className="rounded-2xl border border-line bg-raised/80 p-5">
+        <p className="text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-accent">
           {t('results.methodologyTitle')}
         </p>
-        <p className="mt-2.5 text-[0.92rem] leading-relaxed text-ice-100">{t(afterKey)}</p>
+        <p className="mt-2.5 text-[0.92rem] leading-relaxed text-ink">{t(afterKey)}</p>
       </div>
     </div>
   );

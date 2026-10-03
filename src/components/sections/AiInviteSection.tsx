@@ -18,34 +18,34 @@ export function AiInviteSection() {
     <section
       aria-labelledby="ai-invite-heading"
       data-section="ai-invite"
-      className="relative overflow-hidden border-y border-pool-300/10 bg-gradient-to-b from-ocean-900/70 via-ocean-950 to-ocean-950 py-16 sm:py-20"
+      className="relative overflow-hidden border-y border-line bg-page py-14 sm:py-16"
     >
       <WaterCaustics position="center" opacity={0.18} />
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-x-0 top-0 h-px"
-        style={{ background: 'linear-gradient(to right, transparent, rgba(120,220,239,0.32), transparent)' }}
+        style={{ background: 'linear-gradient(to right, transparent, var(--color-line-strong), transparent)' }}
       />
 
       <div className="relative mx-auto w-full max-w-[86rem] px-5 sm:px-8 lg:px-12">
-        <div className="flex flex-col items-start gap-8 rounded-[1.75rem] border border-pool-300/14 bg-ocean-950/60 p-7 backdrop-blur-sm sm:p-10 lg:flex-row lg:items-center lg:justify-between">
+        <div className="flex flex-col items-start gap-8 rounded-[1.75rem] border border-line bg-raised/80 p-7 shadow-card backdrop-blur-md sm:p-10 lg:flex-row lg:items-center lg:justify-between">
           <div className="flex items-start gap-5">
-            <span className="relative inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-pool-300/20 bg-ocean-950/70 text-pool-300">
+            <span className="relative inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-line bg-sunken text-accent">
               <span
                 aria-hidden="true"
-                className="orb-pulse absolute inset-[-5px] rounded-2xl border border-pool-300/15"
+                className="orb-pulse absolute inset-[-5px] rounded-2xl border border-accent/25"
               />
               <SparkIcon size={21} className="relative" />
             </span>
             <div className="max-w-[46ch]">
               <h2
                 id="ai-invite-heading"
-                className="text-balance text-[clamp(1.5rem,3.4vw,2.2rem)] font-semibold leading-[1.18] text-ice-50"
+                className="text-balance text-[clamp(1.5rem,3.4vw,2.2rem)] font-semibold leading-[1.18] text-ink"
               >
                 {t('inviteTitle')}
               </h2>
-              <p className="mt-3 text-[0.95rem] leading-relaxed text-slate-300">{t('inviteBody')}</p>
-              <p className="mt-4 max-w-[56ch] text-[0.82rem] leading-relaxed text-slate-500">
+              <p className="mt-3 text-[0.95rem] leading-relaxed text-ink-2">{t('inviteBody')}</p>
+              <p className="mt-4 max-w-[56ch] text-[0.82rem] leading-relaxed text-ink-4">
                 {concierge('disclaimer')}
               </p>
             </div>

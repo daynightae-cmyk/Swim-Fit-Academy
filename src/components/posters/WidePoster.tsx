@@ -214,12 +214,12 @@ export function WidePoster({
 
           <h2
             id={`poster-${id}-heading`}
-            className="text-balance text-[clamp(1.5rem,4.4vw,3.3rem)] font-semibold leading-[1.14] tracking-[-0.02em] text-[var(--poster-copy-ink)]"
+            className={`text-balance text-[clamp(1.5rem,4.4vw,3.3rem)] font-semibold text-[var(--poster-copy-ink)] ${rtl ? 'leading-[1.22] tracking-normal' : 'leading-[1.14] tracking-[-0.02em]'}`}
           >
             {t(headlineKey)}
           </h2>
 
-          <p className="max-w-[46ch] text-[0.95rem] leading-relaxed text-[var(--poster-copy-ink-2)] sm:text-base">
+          <p className="max-w-[46ch] text-[0.95rem] leading-[1.75] text-[var(--poster-copy-ink-2)] sm:text-base">
             {t(sublineKey)}
           </p>
 
