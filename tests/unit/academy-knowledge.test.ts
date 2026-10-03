@@ -10,7 +10,7 @@ import { buildSystemInstruction } from '@/lib/ai/prompt';
 
 describe('academy concierge knowledge base', () => {
   it('ships a large bilingual knowledge corpus', () => {
-    expect(KNOWLEDGE_ARTICLE_COUNT).toBeGreaterThanOrEqual(35);
+    expect(KNOWLEDGE_ARTICLE_COUNT).toBeGreaterThanOrEqual(120);
     expect(
       ACADEMY_KNOWLEDGE.every((item) => item.answerAr.length > 20 && item.answerEn.length > 20),
     ).toBe(true);
